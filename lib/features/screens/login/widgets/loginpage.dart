@@ -75,21 +75,16 @@ class LoginPage extends StatelessWidget {
               ),
 
               //  Forget Password
-              TextButton(
-                onPressed: () {},
-                child: Text(UTexts.forgetPassword),
-              ),
-
+              TextButton(onPressed: () {}, child: Text(UTexts.forgetPassword)),
             ],
           ),
-          
-          SizedBox(height: USizes.spaceBtwSections,),
-          // SignIn
-          UElevatedButton(onPressed: (){}, child: Text(UTexts.signIn)),
-          SizedBox(height: USizes.spaceBtwItems/2,),
-          // Create Account Button
-          UElevatedButton(onPressed: (){}, child: Text(UTexts.createAccount))
 
+          SizedBox(height: USizes.spaceBtwSections),
+          // SignIn
+          UElevatedButton(onPressed: () {}, child: Text(UTexts.signIn)),
+          SizedBox(height: USizes.spaceBtwItems / 2),
+          // Create Account Button
+          UElevatedButton(onPressed: () {}, child: Text(UTexts.createAccount)),
 
           /***************
           * DIVIDER PART *
