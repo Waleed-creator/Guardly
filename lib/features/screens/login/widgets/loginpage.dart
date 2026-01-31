@@ -89,7 +89,7 @@ class LoginPage extends StatelessWidget {
           /***************
           * DIVIDER PART *
            ***************/
-          // Wow Adil
+          // Wow Adil waleed
           /***************
           * FOOTER PART *
            ***************/
