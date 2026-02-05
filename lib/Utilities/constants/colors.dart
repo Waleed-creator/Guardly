@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class UColors {
   UColors._();
 
-  // Screen Background Colors      
+  // Screen Background Colors
   static const Color primary_600 = Color.fromARGB(255, 205, 255, 250);
   static const Color primary_800 = Color.fromARGB(255, 77, 182, 172);
   static const Color secondary = Color(0xFFFFFFFF);
@@ -14,6 +14,7 @@ class UColors {
   static const Color textPrimary800 = Color.fromARGB(255, 31, 41, 55);
   static const Color textSecondary = Color.fromARGB(255, 121, 120, 120);
   static const Color textWhite = Color(0xFFF6F6F6);
+  static const Color green_600 = Color.fromRGBO(77, 182, 172, 1);
 
   // Indicator Colors
   static const Color iPrimary = Color(0xFF4DB6AC);

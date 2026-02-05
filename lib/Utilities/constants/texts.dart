@@ -68,6 +68,7 @@ class UTexts {
 //  *******************/
 
       static const String otpText = "Get OTP";
+      static const String verifyText = "Verify";
 
 //   /*********************
 //  * VERIFY EMAIL PAGE *
@@ -77,4 +78,16 @@ class UTexts {
   static const String verifyEmailSubTitle = "We've sent a verification code to";
   static const String verifyEmailSubTitle2 = "example@gmail.com";
   static const String  codeNotReceive = "Didn't receive the code?";
+
+
+// /********************
+//  * SET NEW PASSWORD *
+//  ********************/
+
+  static const String setNewPasswordTitle = "Set New Password";
+  static const String setNewPasswordSubTitle = "Your new password must be different from previous used passwords.";
+  static const String newPassword = "New Password";
+  static const String confirmPassword = "Confirm Password";
+  static const String resetPassword = "Reset Password";
+
 }
