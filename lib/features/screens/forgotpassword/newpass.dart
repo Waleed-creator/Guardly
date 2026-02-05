@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:mindshield/Utilities/constants/images.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
-import 'package:mindshield/features/screens/forgotpassword/newpass.dart';
+import 'package:mindshield/features/screens/forgotpassword/passchanged.dart';
 import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
-import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbutton.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
 import 'package:get/get.dart';
+import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbutton.dart';
 
-class VerifyEmail extends StatelessWidget {
-  const VerifyEmail({super.key});
+class NewPassScreen extends StatelessWidget {
+  const NewPassScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +19,11 @@ class VerifyEmail extends StatelessWidget {
         children: [
           PageView(
             children: [
-              HelperVerifyEmail(
+              SetPassPage(
                 // ! Header
-                title: UTexts.verifyEmailTitle,
-                subtitle: UTexts.verifyEmailSubTitle,
-                subtitle2: UTexts.verifyEmailSubTitle2,
-                send: UTexts.codeNotReceive,
+                title: UTexts.setNewPasswordTitle,
+                subtitle: UTexts.setNewPasswordSubTitle,
+                image: UImages.passwordRequirements,
               ),
             ],
           ),
@@ -34,8 +35,8 @@ class VerifyEmail extends StatelessWidget {
             right: 0,
             left: 0,
             child: ForgotButtonContainer(
-              text: UTexts.verifyText,
-              onPressed: () => Get.to(() => const NewPassScreen()),
+              text: UTexts.confirmButton,
+              onPressed: () => Get.to(() => PassChanged()),
             ),
           ),
         ],
@@ -44,18 +45,16 @@ class VerifyEmail extends StatelessWidget {
   }
 }
 
-class HelperVerifyEmail extends StatelessWidget {
-  const HelperVerifyEmail({
+class SetPassPage extends StatelessWidget {
+  const SetPassPage({
     super.key,
     required this.title,
     required this.subtitle,
-    required this.subtitle2,
-    required this.send,
+    required this.image,
   });
   final String title;
   final String subtitle;
-  final String subtitle2;
-  final String send;
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -90,30 +89,36 @@ class HelperVerifyEmail extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
 
-          // !  Sub Title 2
-          Text(
-            subtitle2,
-            style: TextStyle().copyWith(
-              fontSize: 18.0,
-              // fontWeight: FontWeight.bold,
-              color: UColors.green_600,
-            ),
-            textAlign: TextAlign.center,
-          ),
-
           const SizedBox(height: 70),
-
           /***************
           * FORM PART *
            ***************/
-          Text(
-            send,
-            style: TextStyle().copyWith(
-              fontSize: 18.0,
-              // fontWeight: FontWeight.bold,
-              color: UColors.textPrimary500,
+          TextFormField(
+            decoration: InputDecoration(
+              prefix: Icon(Iconsax.direct_right),
+              labelText: UTexts.password,
+              hintText: UTexts.newPassword,
             ),
-            textAlign: TextAlign.center,
+          ),
+
+          const SizedBox(height: 10),
+
+          TextFormField(
+            decoration: InputDecoration(
+              prefix: Icon(Iconsax.direct_right),
+              labelText: UTexts.confirmPassword,
+              hintText: UTexts.confirmPassword,
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          Center(
+            child: SizedBox(
+              // height: 110,
+              // width: 90, // image height adjust karo yahan
+              child: Image.asset(image, fit: BoxFit.contain),
+            ),
           ),
         ],
       ),

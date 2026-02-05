@@ -94,6 +94,9 @@ flutter:
     - assets/notification/backward.svg
     # Login Splash Screen
     - "assets/images/loginSplash.png"
+        # Set Password  Screen
+    - "assets/images/PasswordRequirements.png"
+
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg    

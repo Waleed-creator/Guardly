@@ -4,12 +4,11 @@ import 'package:mindshield/Utilities/constants/sizes.dart';
 // import 'package:mindshield/features/authentication/controllers/onboarding/onboarding_controller.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
 import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
-import 'package:get/get.dart';
-import 'package:mindshield/features/screens/forgotpassword/verifyemail.dart';
 
 class ForgotButtonContainer extends StatelessWidget {
-  const ForgotButtonContainer({super.key, required this.text});
+  const ForgotButtonContainer({super.key, required this.text, required this.onPressed});
    final String text;
+    final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +20,7 @@ class ForgotButtonContainer extends StatelessWidget {
       ),
       padding: EdgeInsets.only(bottom: 10), // existing padding
       child: UElevatedButton(
-        onPressed:() => Get.to(() => const VerifyEmail()),
+        onPressed: onPressed,
         child: Text(
           text,
           style: TextStyle(

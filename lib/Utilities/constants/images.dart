@@ -15,4 +15,11 @@ class UImages {
   static const String backward = "assets/notification/backward.svg";
   // Login Splash Screen
   static const String loginSplash = "assets/images/loginSplash.png";
+
+    // /********************
+  //  * SET NEW PASSWORD *
+  //  ********************/
+
+  static const String passwordRequirements = "assets/images/PasswordRequirements.png";
+
 }
