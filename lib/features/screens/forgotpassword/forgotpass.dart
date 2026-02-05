@@ -25,13 +25,9 @@ class ForgotMainScreen extends StatelessWidget {
           //  BackWard Button
           ForgotBackButton(),
 
-          Positioned(
-            // top: MediaQuery.of(context).size.height * 1,
-            left: 0,
-            right: 0,
-            bottom: 10,
-            child: OTPButton(),
-          ),
+          Positioned(bottom: 10, right: 0, left: 0, child: ForgotButtonContainer(
+            text: UTexts.otpText,
+          )),
         ],
       ),
     );

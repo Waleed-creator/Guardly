@@ -61,4 +61,20 @@ class UTexts {
   static const String forgetPasswordTitle = "Forgot Password?";
   static const String forgetPasswordSubTitle =
       "Don't worry! Enter your email and we'll send you a verification code to reset your password.";
+
+  
+// /*******************
+//  * FORGET PASSWORD *
+//  *******************/
+
+      static const String otpText = "Get OTP";
+
+//   /*********************
+//  * VERIFY EMAIL PAGE *
+//  *********************/
+
+  static const String verifyEmailTitle = "Verify Email";
+  static const String verifyEmailSubTitle = "We've sent a verification code to";
+  static const String verifyEmailSubTitle2 = "example@gmail.com";
+  static const String  codeNotReceive = "Didn't receive the code?";
 }
