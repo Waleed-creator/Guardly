@@ -4,6 +4,8 @@ import 'package:iconsax/iconsax.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
 import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
+import 'package:get/get.dart';
+import 'package:mindshield/features/screens/forgotpassword/forgotpass.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key, required this.image, required this.title});
@@ -75,7 +77,7 @@ class LoginPage extends StatelessWidget {
               ),
 
               //  Forget Password
-              TextButton(onPressed: () {}, child: Text(UTexts.forgetPassword)),
+              TextButton(onPressed: () => Get.to(() => const ForgotMainScreen()), child: Text(UTexts.forgetPassword)),
             ],
           ),
 
