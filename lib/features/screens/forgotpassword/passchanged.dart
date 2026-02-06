@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:mindshield/Utilities/constants/images.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
 import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
+import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbutton.dart';
+import 'package:mindshield/features/screens/login/login.dart';
 
 class PassChanged extends StatelessWidget {
   const PassChanged({super.key});
@@ -17,14 +21,24 @@ class PassChanged extends StatelessWidget {
             children: [
               SetPassPage(
                 // ! Header
-                title: UTexts.setNewPasswordTitle,
-                subtitle: UTexts.setNewPasswordSubTitle,
+                image: UImages.passwordChanged,
+                title: UTexts.passwordchangedTitle,
+                subtitle: UTexts.passwordchangedSubTitle,
               ),
             ],
           ),
           //  BackWard Button
           ForgotBackButton(),
 
+          Positioned(
+            bottom: 10,
+            right: 0,
+            left: 0,
+            child: ForgotButtonContainer(
+              text: UTexts.backToLogin ,
+              onPressed: () => Get.to(() => LoginScreen()),
+            ),
+          ),
         ],
       ),
     );
@@ -32,7 +46,13 @@ class PassChanged extends StatelessWidget {
 }
 
 class SetPassPage extends StatelessWidget {
-  const SetPassPage({super.key, required this.title, required this.subtitle});
+  const SetPassPage({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.image,
+  });
+  final String image;
   final String title;
   final String subtitle;
   @override
@@ -42,13 +62,24 @@ class SetPassPage extends StatelessWidget {
         right: USizes.defaultSpace,
         left: USizes.defaultSpace,
         // top: UDeviceHelper.getAppBarHeight(),
-        top: 170,
+        top: 200,
       ),
       child: Column(
         children: [
           /***************
           * HEADER PART *
            ***************/
+          // ! Image
+          Center(
+            child: SizedBox(
+              height: 120,
+              width: 120, // image height adjust karo yahan
+              child: Image.asset(image, fit: BoxFit.contain),
+            ),
+          ),
+          // !  Title
+          const SizedBox(height: 20),
+
           // ! Large Title
           Text(
             title,
@@ -67,28 +98,6 @@ class SetPassPage extends StatelessWidget {
               color: UColors.textPrimary500,
             ),
             textAlign: TextAlign.center,
-          ),
-
-          const SizedBox(height: 70),
-          /***************
-          * FORM PART *
-           ***************/
-          TextFormField(
-            decoration: InputDecoration(
-              prefix: Icon(Iconsax.direct_right),
-              labelText: UTexts.password,
-              hintText: UTexts.newPassword,
-            ),
-          ),
-
-          const SizedBox(height: 10),
-
-          TextFormField(
-            decoration: InputDecoration(
-              prefix: Icon(Iconsax.direct_right),
-              labelText: UTexts.confirmPassword,
-              hintText: UTexts.confirmPassword,
-            ),
           ),
         ],
       ),

@@ -21,5 +21,6 @@ class UImages {
   //  ********************/
 
   static const String passwordRequirements = "assets/images/PasswordRequirements.png";
+  static const String passwordChanged = "assets/images/SuccessCircle.png";
 
 }

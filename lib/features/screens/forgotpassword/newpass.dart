@@ -62,7 +62,7 @@ class SetPassPage extends StatelessWidget {
         right: USizes.defaultSpace,
         left: USizes.defaultSpace,
         // top: UDeviceHelper.getAppBarHeight(),
-        top: 170,
+        top: 140,
       ),
       child: Column(
         children: [
@@ -89,7 +89,7 @@ class SetPassPage extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
 
-          const SizedBox(height: 70),
+          const SizedBox(height: 15),
           /***************
           * FORM PART *
            ***************/

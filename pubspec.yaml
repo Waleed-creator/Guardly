@@ -95,7 +95,9 @@ flutter:
     # Login Splash Screen
     - "assets/images/loginSplash.png"
         # Set Password  Screen
-    - "assets/images/PasswordRequirements.png"
+    - "assets/images/PasswordRequirements.png"       
+    #  Password Changed Screen
+    - "assets/images/SuccessCircle.png"
 
   # assets:
   #   - images/a_dot_burr.jpeg

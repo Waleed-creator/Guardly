@@ -88,4 +88,14 @@ class UTexts {
   static const String newPassword = "New Password";
   static const String confirmPassword = "Confirm Password";
   static const String confirmButton = "Confirm";
+
+  // /********************
+  //  * PASSWORD Changed*
+  //  ********************/
+
+  static const String passwordchangedTitle = "Password Changed!";
+  static const String passwordchangedSubTitle =
+      "Your password has been successfully changed. You can now sign in with your new password.";
+
+  static const String backToLogin = "Back to Login";
 }
