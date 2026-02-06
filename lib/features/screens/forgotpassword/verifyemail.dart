@@ -102,7 +102,7 @@ class HelperVerifyEmail extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
 
-          const SizedBox(height: 60),
+          const SizedBox(height: 70),
 
           PinCodeTextField(
             appContext: context,
@@ -133,6 +133,8 @@ class HelperVerifyEmail extends StatelessWidget {
           /***************
           * FORM PART *
            ***************/
+
+          SizedBox(height: 10,),
           Text(
             send,
             style: TextStyle().copyWith(

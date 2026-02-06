@@ -61,6 +61,9 @@ class UTexts {
   static const String forgetPasswordTitle = "Forgot Password?";
   static const String forgetPasswordSubTitle =
       "Don't worry! Enter your email and we'll send you a verification code to reset your password.";
+  static const String cWAccount = "Continue with google";
+  static const String cWOAccount = "Don't have an account";
+  static const String signUp = "Sign Up";
 
   // /*******************
   //  * FORGET PASSWORD *
