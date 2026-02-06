@@ -4,6 +4,7 @@ import 'package:mindshield/Utilities/constants/images.dart';
 // import 'package:mindshield/features/screens/allowNotification/allow_notification.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
+import 'package:mindshield/Utilities/theme/theme.dart';
 import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
 import 'package:get/get.dart';
 import 'package:mindshield/features/screens/forgotpassword/forgotpass.dart';
@@ -52,6 +53,8 @@ class LoginPage extends StatelessWidget {
               prefix: Icon(Iconsax.direct_right),
               labelText: UTexts.email,
               hintText: "Enter your email",
+              filled: true,
+              fillColor: UColors.light, // background
             ),
           ),
 
@@ -63,6 +66,8 @@ class LoginPage extends StatelessWidget {
               labelText: UTexts.password,
               hintText: "Enter your Password",
               suffixIcon: Icon(Iconsax.eye),
+              filled: true,
+              fillColor: UColors.light, // background
             ),
           ),
 
