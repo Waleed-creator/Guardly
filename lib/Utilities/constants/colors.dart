@@ -23,6 +23,7 @@ class UColors {
   // Theme color Dark/White Mode
   static const Color light = Color(0xFFF6F6F6);
   static const Color dark = Color(0xFF272727);
+  static const Color grey_400  = Color.fromRGBO(189, 189, 189, 1);
 
   // Button Colors
   static const Color bprimary = Color(0xFF4DB6AC);

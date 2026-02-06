@@ -23,7 +23,7 @@ class UTextFormFieldTheme {
     ),
     border: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(USizes.inputFieldRadius),
-      borderSide: const BorderSide(width: 1, color: UColors.bSecondary),
+      borderSide: const BorderSide(width: 1, color: UColors.bSecondary,)
     ),
     enabledBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(USizes.inputFieldRadius),

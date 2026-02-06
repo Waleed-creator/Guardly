@@ -6,6 +6,7 @@ import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbutton.
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
 import 'package:get/get.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 class VerifyEmail extends StatelessWidget {
   const VerifyEmail({super.key});
@@ -101,8 +102,34 @@ class HelperVerifyEmail extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
 
-          const SizedBox(height: 70),
+          const SizedBox(height: 60),
 
+          PinCodeTextField(
+            appContext: context,
+            length: 4,
+            keyboardType: TextInputType.number,
+            animationType: AnimationType.fade,
+            cursorColor: UColors.green_600,
+            textStyle: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+            mainAxisAlignment: MainAxisAlignment.center,
+            separatorBuilder: (context, index) => const SizedBox(width: 8),
+            pinTheme: PinTheme(
+              shape: PinCodeFieldShape.box,
+              borderRadius: BorderRadius.circular(10),
+              fieldHeight: 55,
+              fieldWidth: 45,
+              activeColor: UColors.green_600,
+              selectedColor: UColors.textPrimary500,
+              inactiveColor: UColors.grey_400,
+            ),
+            onChanged: (value) {},
+            onCompleted: (value) {},
+          ),
+
+          const SizedBox(height: 20),
           /***************
           * FORM PART *
            ***************/
