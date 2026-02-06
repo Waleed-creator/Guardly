@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
         right: USizes.defaultSpace,
         left: USizes.defaultSpace,
         // top: UDeviceHelper.getAppBarHeight(),
-        top: 120,
+        top: 90,
       ),
       child: Column(
         children: [
@@ -77,22 +77,49 @@ class LoginPage extends StatelessWidget {
               ),
 
               //  Forget Password
-              TextButton(onPressed: () => Get.to(() => const ForgotMainScreen()), child: Text(UTexts.forgetPassword)),
+              TextButton(
+                onPressed: () => Get.to(() => const ForgotMainScreen()),
+                child: Text(
+                  UTexts.forgetPassword,
+                  style: TextStyle().copyWith(
+                    fontWeight: FontWeight.normal,
+                    color: Color(0xFF009688),
+                    fontSize: 13,
+                    decoration: TextDecoration.underline,
+                    decorationThickness: 2,
+                    decorationColor: Color(0xFF009688),
+                  ),
+                ),
+              ),
             ],
           ),
 
-          SizedBox(height: USizes.spaceBtwSections),
+          SizedBox(height: 10),
           // SignIn
           UElevatedButton(onPressed: () {}, child: Text(UTexts.signIn)),
           SizedBox(height: USizes.spaceBtwItems / 2),
           // Create Account Button
-          UElevatedButton(onPressed: () {}, child: Text(UTexts.createAccount)),
 
           /***************
           * DIVIDER PART *
            ***************/
-          // Waleed , Adil , Fahad 
-          
+          SizedBox(height: 10),
+
+          Row(
+            children: [
+              Expanded(
+                child: Divider(indent: 10, endIndent: 5, thickness: 0.5),
+              ),
+              Text(
+                UTexts.orSignInWith,
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+              Expanded(
+                child: Divider(indent: 5, endIndent: 10, thickness: 0.5),
+              ),
+            ],
+          ),
+
           /***************
           * FOOTER PART *
            ***************/

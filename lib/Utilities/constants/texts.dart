@@ -57,7 +57,7 @@ class UTexts {
   static const String forgetPassword = "Forget Password";
   static const String signIn = "Sign In";
   static const String createAccount = "Create Account";
-  static const String orSignInWith = "Or Sign In With";
+  static const String orSignInWith = "OR";
   static const String forgetPasswordTitle = "Forgot Password?";
   static const String forgetPasswordSubTitle =
       "Don't worry! Enter your email and we'll send you a verification code to reset your password.";
