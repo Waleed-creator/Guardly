@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mindshield/Utilities/constants/images.dart';
 // import 'package:mindshield/features/screens/allowNotification/allow_notification.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
@@ -118,6 +119,65 @@ class LoginPage extends StatelessWidget {
                 child: Divider(indent: 5, endIndent: 10, thickness: 0.5),
               ),
             ],
+          ),
+
+          SizedBox(height: 10),
+
+          Center(
+            child: Row(
+              mainAxisSize: MainAxisSize
+                  .min, // [icon][text]__________________________________ Space So Instaed Of max We use Min
+              children: [
+                SizedBox(
+                  height: 24,
+                  width: 24,
+                  child: Image.asset(UImages.google),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    UTexts.cWAccount,
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          Center(
+            child: Row(
+              mainAxisSize: MainAxisSize
+                  .min, // [icon][text]__________________________________ Space So Instaed Of max We use Min
+              children: [
+                Text(
+                  UTexts.cWOAccount,
+                  style: TextStyle().copyWith(
+                    fontWeight: FontWeight.normal,
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontSize: 16,
+                  ),
+                ),
+
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    UTexts.signUp,
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      color: Color(0xFF009688),
+                      fontSize: 18,
+                      decoration: TextDecoration.underline,
+                      decorationThickness: 2,
+                      decorationColor: Color(0xFF009688),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
 
           /***************
