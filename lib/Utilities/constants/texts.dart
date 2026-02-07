@@ -101,4 +101,19 @@ class UTexts {
       "Your password has been successfully changed. You can now sign in with your new password.";
 
   static const String backToLogin = "Back to Login";
+
+  // /***************
+  //  * SIGNUP PAGE *
+  //  ***************/
+
+  static const String signUpTitle = "SignUp";
+  static const String firstName = "First Name";
+  static const String lastName = "Last Name";
+  static const String emailAddress = "Email Address";
+  static const String continueButton = "Continue";
+  static const String alreadyHaveAccount = "Already have an account?";
+  static const String cAPass = "Create a Passward";
+
+
+
 }

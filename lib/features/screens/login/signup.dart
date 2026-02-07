@@ -1,17 +1,67 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
-// import 'package:mindshield/features/screens/allowNotification/allow_notification.dart';
-import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
-import 'package:mindshield/Utilities/theme/theme.dart';
+import 'package:mindshield/features/screens/allowNotification/widgets/notify_backward_button.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
 import 'package:get/get.dart';
 import 'package:mindshield/features/screens/forgotpassword/forgotpass.dart';
-import 'package:mindshield/features/screens/login/signup.dart';
+import 'package:mindshield/Utilities/constants/colors.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key, required this.image, required this.title});
+class SignupScreen extends StatelessWidget {
+  const SignupScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomRight,
+            colors: [
+              UColors.primary_600, // Teal
+              UColors.secondary, // White
+            ],
+            stops: [0.1, 0.6], // End > Begin Point
+          ),
+        ),
+        child: Stack(
+          children: [
+            PageView(
+              children: [
+                SignupPage(
+                  // ! Header
+                  image: UImages.loginSplash,
+                  title: UTexts.loginTitle,
+
+                  // ! Form
+
+                  // ! Divider
+
+                  // ! Footer
+                ),
+              ],
+            ),
+            //  BackWard Button
+            NotifyBackButton(),
+            // ************************************
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+class SignupPage extends StatelessWidget {
+  const SignupPage({super.key, required this.image, required this.title});
   final String image;
   final String title;
   @override
@@ -169,7 +219,7 @@ class LoginPage extends StatelessWidget {
                 ),
 
                 TextButton(
-                  onPressed: () => Get.to(() => SignupScreen()),
+                  onPressed: () {},
                   child: Text(
                     UTexts.signUp,
                     style: TextStyle(
