@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
+import 'package:mindshield/features/screens/AccountType/account_type_splash.dart';
 import 'package:mindshield/features/screens/allowNotification/widgets/notify_backward_button.dart';
 import 'package:mindshield/features/screens/login/widgets/terms_splash.dart';
 import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
@@ -44,10 +46,12 @@ class WellcomeScreen extends StatelessWidget {
               left: 15,
               right: 15,
               child: UElevatedButton(
-                onPressed: () {},
+                onPressed: () => Get.to(() => ChooseAccount()),
                 child: Text(UTexts.continueButton),
               ),
             ),
+
+
             NotifyBackButton(),
             TermsText(),
           ],

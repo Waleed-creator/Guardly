@@ -116,11 +116,16 @@ class UTexts {
   static const String alreadyHaveAccount = "Already have an account";
   static const String cAPass = "Create a Passward";
 
-// /*****************
-//  * WELLCOME PAGE *
-//  *****************/
+  // /*****************
+  //  * WELLCOME PAGE *
+  //  *****************/
 
   static const String wellcomeTitle = "Welcome back";
   static const String wellcomeFirstName = "Waleed";
 
+  // /***********************
+  //  * CHOOSE ACCOUNT TYPE *
+  //  ***********************/
+
+  static const String accountTypeTitle = "Who is going to use this device ?";
 }
