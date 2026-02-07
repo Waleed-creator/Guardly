@@ -11,11 +11,11 @@ class UTextFormFieldTheme {
     suffixIconColor: UColors.dark,
     labelStyle: const TextStyle().copyWith(
       fontSize: USizes.fontSizeMd,
-      color: UColors.dark,
+      color: UColors.dark_500,
     ),
     hintStyle: const TextStyle().copyWith(
       fontSize: USizes.fontSizeSm,
-      color: UColors.dark,
+      color: UColors.dark_500,
     ),
     errorStyle: const TextStyle().copyWith(fontStyle: FontStyle.normal),
     floatingLabelStyle: const TextStyle().copyWith(

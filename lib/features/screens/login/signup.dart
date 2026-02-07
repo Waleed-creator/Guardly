@@ -6,8 +6,9 @@ import 'package:iconsax/iconsax.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
 import 'package:get/get.dart';
-import 'package:mindshield/features/screens/forgotpassword/forgotpass.dart';
-import 'package:mindshield/Utilities/constants/colors.dart';
+import 'package:mindshield/features/screens/login/login.dart';
+import 'package:mindshield/Utilities/theme/theme.dart';
+
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -36,7 +37,7 @@ class SignupScreen extends StatelessWidget {
                 SignupPage(
                   // ! Header
                   image: UImages.loginSplash,
-                  title: UTexts.loginTitle,
+                  title: UTexts.signUp,
 
                   // ! Form
 
@@ -55,10 +56,6 @@ class SignupScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
 
 class SignupPage extends StatelessWidget {
   const SignupPage({super.key, required this.image, required this.title});
@@ -96,9 +93,39 @@ class SignupPage extends StatelessWidget {
           ),
 
           const SizedBox(height: 20),
+
           /***************
           * FORM PART *
            ***************/
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Expanded(
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    labelText: UTexts.firstName,
+                    hintText: "Enter your First Name",
+                    filled: true,
+                    fillColor: UColors.light, // background
+                  ),
+                ),
+              ),
+              SizedBox(width: USizes.spaceBtwInputFields), // 👈 gap here
+              Expanded(
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    labelText: UTexts.lastName,
+                    hintText: "Enter your Last Name",
+                    filled: true,
+                    fillColor: UColors.light, // background
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          SizedBox(height: 10),
+
           TextFormField(
             decoration: InputDecoration(
               prefix: Icon(Iconsax.direct_right),
@@ -114,7 +141,7 @@ class SignupPage extends StatelessWidget {
           TextFormField(
             decoration: InputDecoration(
               prefix: Icon(Iconsax.direct_right),
-              labelText: UTexts.password,
+              labelText: UTexts.cAPass,
               hintText: "Enter your Password",
               suffixIcon: Icon(Iconsax.eye),
               filled: true,
@@ -122,38 +149,23 @@ class SignupPage extends StatelessWidget {
             ),
           ),
 
-          //         Row
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Checkbox(value: true, onChanged: (value) {}),
-                  Text(UTexts.rememberMe),
-                ],
-              ),
+          SizedBox(height: USizes.spaceBtwInputFields),
 
-              //  Forget Password
-              TextButton(
-                onPressed: () => Get.to(() => const ForgotMainScreen()),
-                child: Text(
-                  UTexts.forgetPassword,
-                  style: TextStyle().copyWith(
-                    fontWeight: FontWeight.normal,
-                    color: Color(0xFF009688),
-                    fontSize: 13,
-                    decoration: TextDecoration.underline,
-                    decorationThickness: 2,
-                    decorationColor: Color(0xFF009688),
-                  ),
-                ),
-              ),
-            ],
+          TextFormField(
+            decoration: InputDecoration(
+              prefix: Icon(Iconsax.direct_right),
+              labelText: UTexts.confirmPassword,
+              hintText: UTexts.confirmYPassword,
+              suffixIcon: Icon(Iconsax.eye),
+              filled: true,
+              fillColor: UColors.light, // background
+            ),
           ),
 
+          //         Row
           SizedBox(height: 10),
           // SignIn
-          UElevatedButton(onPressed: () {}, child: Text(UTexts.signIn)),
+          UElevatedButton(onPressed: () => Get.to(() => LoginScreen()), child: Text(UTexts.continueButton)),
           SizedBox(height: USizes.spaceBtwItems / 2),
           // Create Account Button
 
@@ -210,7 +222,7 @@ class SignupPage extends StatelessWidget {
                   .min, // [icon][text]__________________________________ Space So Instaed Of max We use Min
               children: [
                 Text(
-                  UTexts.cWOAccount,
+                  UTexts.alreadyHaveAccount,
                   style: TextStyle().copyWith(
                     fontWeight: FontWeight.normal,
                     color: Color.fromARGB(255, 0, 0, 0),
@@ -219,9 +231,9 @@ class SignupPage extends StatelessWidget {
                 ),
 
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => Get.to(() => LoginScreen()),
                   child: Text(
-                    UTexts.signUp,
+                    UTexts.signIn,
                     style: TextStyle(
                       fontWeight: FontWeight.normal,
                       color: Color(0xFF009688),

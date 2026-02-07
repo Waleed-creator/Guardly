@@ -15,7 +15,8 @@ class UColors {
   static const Color textSecondary = Color.fromARGB(255, 121, 120, 120);
   static const Color textWhite = Color(0xFFF6F6F6);
   static const Color green_600 = Color.fromRGBO(77, 182, 172, 1);
-  static const Color grey_400  = Color.fromRGBO(189, 189, 189, 1);
+  static const Color grey_400 = Color.fromRGBO(189, 189, 189, 1);
+  static const Color green_800 = Color(0xFF009688);
 
   // Indicator Colors
   static const Color iPrimary = Color(0xFF4DB6AC);

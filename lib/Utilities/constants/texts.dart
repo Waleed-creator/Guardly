@@ -56,6 +56,7 @@ class UTexts {
   static const String rememberMe = "Remember Me";
   static const String forgetPassword = "Forget Password";
   static const String signIn = "Sign In";
+  static const String logIn = "Login";
   static const String createAccount = "Create Account";
   static const String orSignInWith = "OR";
   static const String forgetPasswordTitle = "Forgot Password?";
@@ -90,6 +91,7 @@ class UTexts {
       "Create a strong password for your account";
   static const String newPassword = "New Password";
   static const String confirmPassword = "Confirm Password";
+  static const String confirmYPassword = "Confirm Your Password";
   static const String confirmButton = "Confirm";
 
   // /********************
@@ -111,9 +113,14 @@ class UTexts {
   static const String lastName = "Last Name";
   static const String emailAddress = "Email Address";
   static const String continueButton = "Continue";
-  static const String alreadyHaveAccount = "Already have an account?";
+  static const String alreadyHaveAccount = "Already have an account";
   static const String cAPass = "Create a Passward";
 
+// /*****************
+//  * WELLCOME PAGE *
+//  *****************/
 
+  static const String wellcomeTitle = "Welcome back";
+  static const String wellcomeFirstName = "Waleed";
 
 }
