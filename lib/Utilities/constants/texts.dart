@@ -128,4 +128,9 @@ class UTexts {
   //  ***********************/
 
   static const String accountTypeTitle = "Who is going to use this device ?";
+  static const String parentTitle = "Parent";
+  static const String parentSubTitle =
+      "I will use it to manage my childs device.";
+  static const String childTitle = "Child";
+  static const String childSubTitle = "I will monitor this device.";
 }

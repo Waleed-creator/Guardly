@@ -16,11 +16,18 @@ class UImages {
   // Login Splash Screen
   static const String loginSplash = "assets/images/loginSplash.png";
 
-    // /********************
+  // /********************
   //  * SET NEW PASSWORD *
   //  ********************/
 
-  static const String passwordRequirements = "assets/images/PasswordRequirements.png";
+  static const String passwordRequirements =
+      "assets/images/PasswordRequirements.png";
   static const String passwordChanged = "assets/images/SuccessCircle.png";
 
+  // /****************************
+  //  * PARENT AND CHILD SCREENS *
+  //  ****************************/
+
+  static const String parent1 = "assets/images/parent1.png";
+  static const String child1 = "assets/images/child1.png";
 }
