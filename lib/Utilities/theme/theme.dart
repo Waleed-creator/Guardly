@@ -17,7 +17,7 @@ class UColors {
   static const Color primary_600 = Color.fromARGB(255, 205, 255, 250);
   static const Color primary_800 = Color.fromARGB(255, 77, 182, 172);
   static const Color secondary = Color(0xFFFFFFFF);
-
+    static const Color secondary_500 = Color(0xfffcf3e3);
   // Text colors
   static const Color textPrimary500 = Color.fromARGB(255, 24, 24, 24);
   static const Color textPrimary600 = Color.fromARGB(31, 41, 55, 0);

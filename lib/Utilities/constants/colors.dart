@@ -6,6 +6,7 @@ class UColors {
   // Screen Background Colors
   static const Color primary_600 = Color.fromARGB(255, 205, 255, 250);
   static const Color primary_800 = Color.fromARGB(255, 77, 182, 172);
+  static const Color secondary_500 = Color(0xfffcf3e3);
   static const Color secondary = Color(0xFFFFFFFF);
 
   // Text colors
