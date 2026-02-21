@@ -36,5 +36,6 @@ class UImages {
   //  ****************************/
   
   static const String parentGuidenceInstallation = "assets/images/guidence.png";
+  static const String scanMe = "assets/images/scanme.png";
 
 }

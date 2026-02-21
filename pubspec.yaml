@@ -105,6 +105,7 @@ flutter:
     - "assets/images/child1.png"
     #  Parent Screens
     - "assets/images/guidence.png"
+    - "assets/images/scanme.png"
 
   # assets:
   #   - images/a_dot_burr.jpeg

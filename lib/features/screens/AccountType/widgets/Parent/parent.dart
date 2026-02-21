@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mindshield/Utilities/constants/colors.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
-import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
 import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
+import 'package:mindshield/features/screens/AccountType/widgets/Parent/shareqr.dart';
 import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
 
 // /*************************
@@ -47,12 +49,26 @@ class ParentScreen extends StatelessWidget {
           ForgotBackButton(),
 
           Positioned(
+            bottom: 70,
+            left: 15,
+            right: 15,
+            child: UElevatedButton(
+              onPressed: () => Get.to(() => const ShareQR()),
+              child: Text(UTexts.scanMe),
+            ),
+          ),
+
+          Positioned(
             bottom: 25,
             left: 15,
             right: 15,
             child: UElevatedButton(
-              onPressed: () {},
-              child: Text(UTexts.scanMe),
+              onPressed: () => Get.to(() => const ShareQR()),
+              backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+              textColor: UColors.textPrimary800,
+              showBorder: false,
+              elevation: 0,
+              child: Text(UTexts.otpButton),
             ),
           ),
         ],
