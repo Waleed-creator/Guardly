@@ -103,6 +103,8 @@ flutter:
     #  Parent And Child Screens
     - "assets/images/parent1.png"
     - "assets/images/child1.png"
+    #  Parent Screens
+    - "assets/images/guidence.png"
 
   # assets:
   #   - images/a_dot_burr.jpeg

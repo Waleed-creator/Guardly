@@ -133,4 +133,11 @@ class UTexts {
       "I will use it to manage my childs device.";
   static const String childTitle = "Child";
   static const String childSubTitle = "I will monitor this device.";
+
+// /**********
+//  * PARENT Screens *
+//  **********/
+
+  static const String parentGuide = "To setup your child install Guardly in your child’s device and connect as child ";
+  static const String scanMe = "Scan me";
 }

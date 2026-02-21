@@ -30,4 +30,11 @@ class UImages {
 
   static const String parent1 = "assets/images/parent1.png";
   static const String child1 = "assets/images/child1.png";
+
+    // /****************************
+  //  * PARENT SCREENS *
+  //  ****************************/
+  
+  static const String parentGuidenceInstallation = "assets/images/guidence.png";
+
 }
