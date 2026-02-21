@@ -18,18 +18,14 @@ class ParentScreen extends StatelessWidget {
       body: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.only(
-              right: USizes.defaultSpace,
-              left: USizes.defaultSpace,
-              top: 140,
-            ),
+            padding: EdgeInsets.only(right: 40, left: 40, top: 160),
             child: Column(
               children: [
                 Text(
                   UTexts.parentGuide,
                   textAlign: TextAlign.start,
                   style: const TextStyle(
-                    fontSize: 21,
+                    fontSize: 19,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -39,8 +35,8 @@ class ParentScreen extends StatelessWidget {
                 Align(
                   alignment: Alignment.topLeft,
                   child: SizedBox(
-                    height: 231,
-                    width: 240,
+                    height: 291,
+                    width: 291,
                     child: Image.asset(UImages.parentGuidenceInstallation),
                   ),
                 ),
