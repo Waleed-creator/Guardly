@@ -49,7 +49,7 @@ class ParentScreen extends StatelessWidget {
           ForgotBackButton(),
 
           Positioned(
-            bottom: 70,
+            bottom: 75,
             left: 15,
             right: 15,
             child: UElevatedButton(
@@ -65,10 +65,10 @@ class ParentScreen extends StatelessWidget {
             child: UElevatedButton(
               onPressed: () => Get.to(() => const ShareQR()),
               backgroundColor: const Color.fromARGB(0, 255, 255, 255),
-              textColor: UColors.textPrimary800,
+              textColor: UColors.primary_800,
               showBorder: false,
               elevation: 0,
-              child: Text(UTexts.otpButton),
+              child: Text(UTexts.otpWay),
             ),
           ),
         ],

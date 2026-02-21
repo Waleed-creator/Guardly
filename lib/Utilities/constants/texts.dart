@@ -140,7 +140,7 @@ class UTexts {
 
   static const String parentGuide = "To setup your child install Guardly in your child’s device and connect as child ";
   // static const String scanMe = "Scan me";
-  static const String otpButton = "Get OTP";
+  static const String otpWay = "Try another way";
   static const String getOTP = "or copy the code to connect child’s device";
   static const String scanMe = "Scan Me";
 
