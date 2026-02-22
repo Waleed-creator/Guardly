@@ -43,10 +43,11 @@ dependencies:
   get: ^4.7.3
   permission_handler: ^12.0.1
   fluttertoast: ^8.2.4
-  url_launcher: ^6.3.2
+  url_launcher: ^6.3.0
   iconsax: ^0.0.8
   pin_code_fields: ^8.0.1
   flutter_launcher_icons: ^0.14.4
+  firebase_core: ^4.4.0
 
 dev_dependencies:
   flutter_test:
