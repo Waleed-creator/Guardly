@@ -37,8 +37,8 @@ class ParentScreen extends StatelessWidget {
                 Align(
                   alignment: Alignment.topLeft,
                   child: SizedBox(
-                    height: 291,
-                    width: 291,
+                    height: 271,
+                    width: 261,
                     child: Image.asset(UImages.parentGuidenceInstallation),
                   ),
                 ),
