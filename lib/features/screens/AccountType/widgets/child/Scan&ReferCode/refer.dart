@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
 import 'package:mindshield/features/screens/AccountType/widgets/child/Scan&ReferCode/grantp.dart';
-import 'package:mindshield/features/screens/forgotpassword/newpass.dart';
 import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
 import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbutton.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
