@@ -5,7 +5,6 @@ import 'package:mindshield/Utilities/constants/images.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
 import 'package:mindshield/Utilities/theme/theme.dart';
 import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
-import 'package:mindshield/features/screens/AccountType/account_type_splash.dart';
 import 'package:mindshield/features/screens/AccountType/widgets/child/Scan&ReferCode/refer.dart';
 import 'package:mindshield/features/screens/AccountType/widgets/child/Scan&ReferCode/scan.dart';
 import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
