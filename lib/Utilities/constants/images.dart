@@ -38,4 +38,11 @@ class UImages {
   static const String parentGuidenceInstallation = "assets/images/guidence.png";
   static const String scanMe = "assets/images/scanme.png";
 
+      // /****************************
+  //  * Child SCREENS *
+  //  ****************************/
+
+    static const String scan = "assets/SVG/qrScan.svg";
+    static const String otpPass = "assets/SVG/otp_pass.svg";
+
 }

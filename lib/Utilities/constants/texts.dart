@@ -134,15 +134,22 @@ class UTexts {
   static const String childTitle = "Child";
   static const String childSubTitle = "I will monitor this device.";
 
-// /**********
-//  * PARENT Screens *
-//  **********/
+  // /**********
+  //  * PARENT Screens *
+  //  **********/
 
-  static const String parentGuide = "To setup your child install Guardly in your child’s device and connect as child ";
+  static const String parentGuide =
+      "To setup your child install Guardly in your child’s device and connect as child ";
   // static const String scanMe = "Scan me";
   static const String otpWay = "Try another way";
   static const String getOTP = "or copy the code to connect child’s device";
   static const String scanMe = "Scan Me";
 
+  // /**********
+  //  * Child Screens *
+  //  **********/
 
+  static const String sHTP = "Select how to Proceed";
+  static const String sQRCode = "Scan QR code";
+  static const String uRF = "User Reference Code";
 }

@@ -97,6 +97,8 @@ flutter:
     - assets/images/on-boarding_images/On6.png
     - assets/SVG/arrow-right-solid-full.svg
     - assets/SVG/arrow-left-solid-full.svg
+    - assets/SVG/qrScan.svg
+    - assets/SVG/otp_pass.svg
 #    Login Page
     - assets/logo/facebook.png
     - assets/logo/google.png
