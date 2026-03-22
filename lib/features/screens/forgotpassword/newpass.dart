@@ -15,6 +15,7 @@ class NewPassScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           PageView(
@@ -95,7 +96,7 @@ class SetPassPage extends StatelessWidget {
            ***************/
           TextFormField(
             decoration: InputDecoration(
-              prefix: Icon(Iconsax.direct_right),
+              // prefix: Icon(Iconsax.direct_right),
               labelText: UTexts.password,
               hintText: UTexts.newPassword,
             ),
@@ -105,7 +106,7 @@ class SetPassPage extends StatelessWidget {
 
           TextFormField(
             decoration: InputDecoration(
-              prefix: Icon(Iconsax.direct_right),
+              // prefix: Icon(Iconsax.direct_right),
               labelText: UTexts.confirmPassword,
               hintText: UTexts.confirmPassword,
             ),

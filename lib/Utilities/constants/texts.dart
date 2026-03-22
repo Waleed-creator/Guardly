@@ -152,4 +152,7 @@ class UTexts {
   static const String sHTP = "Select how to Proceed";
   static const String sQRCode = "Scan QR code";
   static const String uRF = "User Reference Code";
+  static const String cToDevice = "Enter the code below to connect this device to parent.";
+  static const String yCanFindCodeOnParentdevice = "You will find this code in parent app !";
+
 }

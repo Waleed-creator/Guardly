@@ -15,6 +15,7 @@ class PassChanged extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           PageView(
@@ -35,7 +36,7 @@ class PassChanged extends StatelessWidget {
             right: 0,
             left: 0,
             child: ForgotButtonContainer(
-              text: UTexts.backToLogin ,
+              text: UTexts.backToLogin,
               onPressed: () => Get.to(() => LoginScreen()),
             ),
           ),

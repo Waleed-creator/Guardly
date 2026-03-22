@@ -13,6 +13,7 @@ class ForgotMainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           PageView(
@@ -27,10 +28,15 @@ class ForgotMainScreen extends StatelessWidget {
           //  BackWard Button
           ForgotBackButton(),
 
-          Positioned(bottom: 10, right: 0, left: 0, child: ForgotButtonContainer(
-            text: UTexts.otpText,
-            onPressed: () => Get.to(() => const VerifyEmail()),
-          )),
+          Positioned(
+            bottom: 10,
+            right: 0,
+            left: 0,
+            child: ForgotButtonContainer(
+              text: UTexts.otpText,
+              onPressed: () => Get.to(() => const VerifyEmail()),
+            ),
+          ),
         ],
       ),
     );

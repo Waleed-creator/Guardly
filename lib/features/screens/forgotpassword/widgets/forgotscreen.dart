@@ -49,7 +49,7 @@ class ForgotPage extends StatelessWidget {
            ***************/
           TextFormField(
             decoration: InputDecoration(
-              prefix: Icon(Iconsax.direct_right),
+              // prefix: Icon(Iconsax.direct_right),
               labelText: UTexts.email,
               hintText: "Email here",
             ),
