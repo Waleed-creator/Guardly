@@ -152,7 +152,35 @@ class UTexts {
   static const String sHTP = "Select how to Proceed";
   static const String sQRCode = "Scan QR code";
   static const String uRF = "User Reference Code";
-  static const String cToDevice = "Enter the code below to connect this device to parent.";
-  static const String yCanFindCodeOnParentdevice = "You will find this code in parent app !";
-
+  static const String cToDevice =
+      "Enter the code below to connect this device to parent.";
+  static const String yCanFindCodeOnParentdevice =
+      "You will find this code in parent app !";
+  // /**********
+  //  * Permission Screen *
+  //  **********/
+  static const String grantPermission = "Grant Permissions";
+  static const String grantPermissionSubtitle =
+      "Allow necessary permissions to monitor and protect your child's device effectively.";
+  static const String cameraTitle = "Camera Access";
+  static const String cameraSubtitle =
+      "Required for capturing inappropriate content detection";
+  static const String microphoneTitle = "Microphone Access";
+  static const String microphoneSubtitle =
+      "Monitor audio for suspicious conversations and calls";
+  static const String locationTitle = "Location Access";
+  static const String locationSubtitle =
+      "Track real-time location and movement history";
+  static const String storageTitle = "Storage Access";
+  static const String storageSubtitle =
+      "Scan files and media for inappropriate content";
+  static const String notifyTitle = "Notifications";
+  static const String notifySubtitle =
+      "Monitor audio for suspicious conversations and calls";
+  static const String contactTitle = "Contacts";
+  static const String contactSubtitle =
+      "Monitor calls and messages for safety concerns";
+  static const String accessibleTitle = "Accessibility Permission";
+  static const String accessibleSubtitle =
+      "Access mobile phone internal permissions";
 }

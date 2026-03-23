@@ -101,7 +101,7 @@ class _ChildHelperScreenState extends State<ChildScreen> {
         padding: const EdgeInsets.all(16),
         margin: const EdgeInsets.only(top: 5),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: UColors.light,
           borderRadius: BorderRadius.circular(16),
           border: Border(
             bottom: BorderSide(

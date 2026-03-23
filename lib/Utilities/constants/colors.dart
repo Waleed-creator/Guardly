@@ -14,9 +14,11 @@ class UColors {
   static const Color textPrimary600 = Color.fromARGB(31, 41, 55, 0);
   static const Color textPrimary800 = Color.fromARGB(255, 31, 41, 55);
   static const Color textSecondary = Color.fromARGB(255, 121, 120, 120);
+  static const Color subtext = Color(0xFF64748B);
+  static const Color subtextSecondary = Color(0xFF64748B);
   static const Color textWhite = Color(0xFFF6F6F6);
   static const Color green_600 = Color.fromRGBO(77, 182, 172, 1);
-  static const Color grey_400 = Color.fromRGBO(189, 189, 189, 1);
+  static const Color grey_400 = Color.fromRGBO(189, 189, 189, 1); 
   static const Color green_800 = Color(0xFF009688);
 
   // Indicator Colors
@@ -25,6 +27,8 @@ class UColors {
 
   // Theme color Dark/White Mode
   static const Color light = Color(0xFFF6F6F6);
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color black = Color(0x00000000);
   static const Color dark = Color(0xFF272727);
   static const Color dark_500 = Color.fromARGB(75, 39, 39, 39);
 
@@ -36,6 +40,9 @@ class UColors {
 
   // URL Link
   static const Color lprimary = Colors.teal;
+
+  // Icon Color
+  static const Color iconPrimary = Color(0xFF64748B);
 }
 
 
