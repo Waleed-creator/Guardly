@@ -48,4 +48,10 @@ class UImages {
     static const String scaningFrame = "assets/images/ScaningFrame.png";
 
 
+      // /****************************
+  //  * Profile SCREENS *
+  //  ****************************/
+    static const String defaultProfile = "assets/images/profile.jpg";
+    static const String whyProfileNeed = "assets/images/Info_Card.png";
+
 }

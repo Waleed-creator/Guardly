@@ -185,5 +185,31 @@ class UTexts {
   static const String accessibleSubtitle =
       "Access mobile phone internal permissions";
 
+  //  Profile Screen Personalization
+
+  static const String addProfileTitle = "Add Profile Photo";
+  static const String tapToAddprofileSubtitle = "Tap to upload or take a photo";
+  static const String childName = "Child's Name *";
+  static const String enterChildName = "Enter child's name";
+  static const String nickname = "Nickname (Optional)";
+  static const String enterNickName = "How do you call them?";
+  static const String age = "Age *";
+  static const String selectAge = "Select age";
+  static const String dOB = "Date of Birth *";
+  static const String enterDOB = "MM / DD / YYYY";
+  
+  static const String gender = "Gender";
+  static const String male = "Male";
+  static const String female = "Female";
+  static const String other = "Other";
+
+
+
+  
+
+
+
+
+
   
 }
