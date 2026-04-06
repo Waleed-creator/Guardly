@@ -172,7 +172,7 @@ class _PBState extends State<ProfileBodySection> {
                 Center(
                   child: SizedBox(
                     height: 160,
-                    width: 308, // image height adjust karo yahan
+                    width: 320, // image height adjust karo yahan
                     child: Image.asset(
                       UImages.whyProfileNeed,
                       fit: BoxFit.contain,
@@ -188,7 +188,7 @@ class _PBState extends State<ProfileBodySection> {
                   onPressed: () {},
                   backgroundColor: UColors.bprimary,
                   elevation: 2,
-                  // horizontalMargin: 9,
+                  horizontalMargin: 18,
                 ),
 
                 SizedBox(height: 20),

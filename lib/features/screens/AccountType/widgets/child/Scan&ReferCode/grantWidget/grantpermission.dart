@@ -109,19 +109,19 @@ class _PermissionHandlerState extends State<PermissionHandler> {
         Center(
           child: SizedBox(
             height: 160,
-            width: 308, // image height adjust karo yahan
+            width: 320, // image height adjust karo yahan
             child: Image.asset(UImages.privacyProtected, fit: BoxFit.contain),
           ),
         ),
 
-        SizedBox(height: 20),
+        SizedBox(height: 10),
 
         UElevatedButton.rectangle(
           text: UTexts.continueButton, 
           onPressed: () {},
           backgroundColor: UColors.bprimary,
           elevation: 2,
-          horizontalMargin: 12,
+          horizontalMargin: 10,
           ),
 
 

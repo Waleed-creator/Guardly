@@ -4,12 +4,13 @@ import 'package:mindshield/Utilities/constants/images.dart';
 // import 'package:mindshield/features/screens/allowNotification/allow_notification.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
-import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
 import 'package:get/get.dart';
 import 'package:mindshield/features/screens/forgotpassword/forgotpass.dart';
 import 'package:mindshield/features/screens/login/signup.dart';
 import 'package:mindshield/Utilities/theme/theme.dart';
 import 'package:mindshield/features/screens/login/welcome.dart';
+
+import '../../../../common/widgets/button/u_elevated_button.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key, required this.image, required this.title});
@@ -103,10 +104,14 @@ class LoginPage extends StatelessWidget {
 
           SizedBox(height: 10),
           // SignIn
-          UElevatedButton(
+          UElevatedButton.rectangle(
             onPressed: () => Get.to(() => const WellcomeScreen()),
-            child: Text(UTexts.logIn),
+            text: UTexts.logIn,
+            backgroundColor: UColors.bprimary,
+            elevation: 2,
+            horizontalMargin: 0,
           ),
+
           SizedBox(height: USizes.spaceBtwItems / 2),
           // Create Account Button
 
