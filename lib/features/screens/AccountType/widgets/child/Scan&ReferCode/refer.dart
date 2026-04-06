@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:mindshield/Utilities/constants/images.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
 import 'package:mindshield/features/screens/AccountType/widgets/child/Scan&ReferCode/grantp.dart';
-import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
-import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbutton.dart';
+// import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
+// import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbutton.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+
+import '../../../../../../common/widgets/button/u_elevated_button.dart';
 
 class CReferCode extends StatelessWidget {
   const CReferCode({super.key});
@@ -27,15 +31,36 @@ class CReferCode extends StatelessWidget {
             ],
           ),
           //  BackWard Button
-          ForgotBackButton(),
+          // ForgotBackButton(),
+
+          //  BackWard Button
+          Positioned(
+            top: USizes.spaceBtwItems * 4.6,
+            left: 30,
+            child: UElevatedButton.svgOnly(
+              onPressed: () => Get.back(),
+              child: SvgPicture.asset(
+                UImages.backward,
+                width: 34,
+                height: 34,
+                colorFilter: const ColorFilter.mode(
+                  UColors.secondaryBlack,
+                  BlendMode.srcIn,
+                ),
+              ),
+            ),
+          ),
 
           Positioned(
-            bottom: 10,
+            bottom: 20,
             right: 0,
             left: 0,
-            child: ForgotButtonContainer(
+            child: UElevatedButton.rectangle(
               text: UTexts.continueButton,
               onPressed: () => Get.to(() => const GrantPermission()),
+              backgroundColor: UColors.bprimary,
+              elevation: 2,
+              horizontalMargin: 9,
             ),
           ),
         ],
@@ -135,4 +160,3 @@ class HelperVerifyEmail extends StatelessWidget {
     );
   }
 }
-

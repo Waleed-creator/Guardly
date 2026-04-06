@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
+import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
 import 'package:mindshield/Utilities/theme/theme.dart';
-import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
+// import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
 import 'package:mindshield/features/screens/AccountType/widgets/child/Scan&ReferCode/refer.dart';
 import 'package:mindshield/features/screens/AccountType/widgets/child/Scan&ReferCode/scan.dart';
-import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
+
+import '../../../../../common/widgets/button/u_elevated_button.dart';
+// import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
 
 // /*************************
 //  * //   MAIN BRAIN CLASS *
@@ -62,13 +65,31 @@ class _ChildHelperScreenState extends State<ChildScreen> {
             ),
           ),
 
-          ForgotBackButton(),
+          // ForgotBackButton(),
+
+          //  BackWard Button
+          Positioned(
+            top: USizes.spaceBtwItems * 4.6,
+            left: 30,
+            child: UElevatedButton.svgOnly(
+              onPressed: () => Get.back(),
+              child: SvgPicture.asset(
+                UImages.backward,
+                width: 34,
+                height: 34,
+                colorFilter: const ColorFilter.mode(
+                  UColors.secondaryBlack,
+                  BlendMode.srcIn,
+                ),
+              ),
+            ),
+          ),
 
           Positioned(
             bottom: 25,
             left: 15,
             right: 15,
-            child: UElevatedButton(
+            child: UElevatedButton.rectangle(
               onPressed: () {
                 if (selectedUser == UserType.scan) {
                   Get.to(() => ChildScan());
@@ -76,7 +97,10 @@ class _ChildHelperScreenState extends State<ChildScreen> {
                   Get.to(() => CReferCode());
                 }
               },
-              child: Text(UTexts.continueButton),
+              text: UTexts.continueButton,
+              backgroundColor: UColors.bprimary,
+              elevation: 2,
+              horizontalMargin: 9,
             ),
           ),
         ],

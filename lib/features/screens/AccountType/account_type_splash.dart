@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:mindshield/Utilities/constants/colors.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
-import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
 import 'package:mindshield/features/screens/AccountType/widgets/Parent/parent.dart';
 import 'package:mindshield/features/screens/AccountType/widgets/child/child.dart';
-import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
 import 'package:get/get.dart';
+
+import '../../../common/widgets/button/u_elevated_button.dart'
+    show UElevatedButton;
 
 // /*************************
 //  * //   MAIN BRAIN CLASS *
@@ -66,13 +69,31 @@ class _ChooseAccountState extends State<ChooseAccount> {
             ),
           ),
 
-          const Positioned(top: 40, left: 15, child: ForgotBackButton()),
+          // const Positioned(top: 40, left: 15, child: ForgotBackButton()),
+
+          //  BackWard Button
+          Positioned(
+            top: USizes.spaceBtwItems * 4.6,
+            left: 10,
+            child: UElevatedButton.svgOnly(
+              onPressed: () => Get.back(),
+              child: SvgPicture.asset(
+                UImages.backward,
+                width: 34,
+                height: 34,
+                colorFilter: const ColorFilter.mode(
+                  UColors.secondaryBlack,
+                  BlendMode.srcIn,
+                ),
+              ),
+            ),
+          ),
 
           Positioned(
             bottom: 25,
             left: 15,
             right: 15,
-            child: UElevatedButton(
+            child: UElevatedButton.rectangle(
               onPressed: () {
                 if (selectedUser == UserType.parent) {
                   Get.to(() => const ParentScreen());
@@ -80,7 +101,9 @@ class _ChooseAccountState extends State<ChooseAccount> {
                   Get.to(() => const ChildScreen());
                 }
               },
-              child: Text(UTexts.continueButton),
+              text: UTexts.continueButton,
+              backgroundColor: UColors.bprimary,
+              horizontalMargin: 8,
             ),
           ),
         ],

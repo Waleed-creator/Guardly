@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
-import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
-import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbutton.dart';
+import 'package:mindshield/common/widgets/button/u_elevated_button.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ChildScan extends StatelessWidget {
   const ChildScan({super.key});
@@ -14,20 +16,36 @@ class ChildScan extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Back Button
-          ForgotBackButton(),
-
-          // Main Content
           ScanBody(),
 
-          // Bottom Button
           Positioned(
-            bottom: MediaQuery.of(context).padding.bottom + 10,
+            top: USizes.spaceBtwItems * 4.6,
+            left: 20,
+            child: UElevatedButton.svgOnly(
+              onPressed: () {
+                Get.back();
+              },
+              child: SvgPicture.asset(
+                "assets/notification/backward.svg",
+                width: 34,
+                height: 34,
+                colorFilter: const ColorFilter.mode(
+                  UColors.secondaryBlack,
+                  BlendMode.srcIn,
+                ),
+              ),
+            ),
+          ),
+
+          Positioned(
+            bottom: MediaQuery.of(context).padding.bottom + 20,
             left: 0,
             right: 0,
-            child: ForgotButtonContainer(
+            child: UElevatedButton.rectangle(
               text: UTexts.continueButton,
               onPressed: () {},
+              backgroundColor: UColors.bprimary,
+              elevation: 2,
             ),
           ),
         ],

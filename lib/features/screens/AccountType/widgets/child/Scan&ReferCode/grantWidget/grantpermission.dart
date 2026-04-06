@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
-import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbutton.dart';
+import 'package:mindshield/common/widgets/button/u_elevated_button.dart';
+// import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbutton.dart';
 
 class PermissionHandler extends StatefulWidget {
   const PermissionHandler({super.key});
@@ -115,7 +116,15 @@ class _PermissionHandlerState extends State<PermissionHandler> {
 
         SizedBox(height: 20),
 
-        ForgotButtonContainer(text: UTexts.continueButton, onPressed: () {}),
+        UElevatedButton.rectangle(
+          text: UTexts.continueButton, 
+          onPressed: () {},
+          backgroundColor: UColors.bprimary,
+          elevation: 2,
+          horizontalMargin: 12,
+          ),
+
+
       ],
     );
   }

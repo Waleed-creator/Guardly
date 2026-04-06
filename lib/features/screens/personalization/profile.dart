@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
-import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbutton.dart';
-import 'package:mindshield/features/screens/personalization/widget/profileskip.dart';
+import 'package:mindshield/common/widgets/button/u_elevated_button.dart';
+// import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbutton.dart';
 // import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class ProfileBodySection extends StatefulWidget {
@@ -33,7 +35,27 @@ class _PBState extends State<ProfileBodySection> {
                 // Back Button **************************
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: ProfileBackButton(),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      left: USizes.spaceBtwItems * 1,
+                      top: 30,
+                    ), 
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: UElevatedButton.svgOnly(
+                        onPressed: () => Get.back(),
+                        child: SvgPicture.asset(
+                          "assets/notification/backward.svg",
+                          width: 34,
+                          height: 34,
+                          colorFilter: const ColorFilter.mode(
+                            UColors.secondaryBlack,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
 
                 Center(
@@ -161,10 +183,15 @@ class _PBState extends State<ProfileBodySection> {
                 // Continue Section *****************************
                 SizedBox(height: 10),
 
-                ForgotButtonContainer(
+                UElevatedButton.rectangle(
                   text: UTexts.continueButton,
                   onPressed: () {},
+                  backgroundColor: UColors.bprimary,
+                  elevation: 2,
+                  // horizontalMargin: 9,
                 ),
+
+                SizedBox(height: 20),
               ],
             ),
           ],

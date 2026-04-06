@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
+import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
-import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
 import 'package:mindshield/features/screens/AccountType/widgets/Parent/shareqr.dart';
-import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
+import '../../../../../common/widgets/button/u_elevated_button.dart';
 
 // /*************************
 //  * //   MAIN BRAIN CLASS *
@@ -38,7 +39,7 @@ class ParentScreen extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   child: SizedBox(
                     height: 271,
-                    width: 261,
+                    width: 271,
                     child: Image.asset(UImages.parentGuidenceInstallation),
                   ),
                 ),
@@ -46,15 +47,36 @@ class ParentScreen extends StatelessWidget {
             ),
           ),
 
-          ForgotBackButton(),
+          // ForgotBackButton(),
+
+          //  BackWard Button
+          Positioned(
+            top: USizes.spaceBtwItems * 4.6,
+            left: 30,
+            child: UElevatedButton.svgOnly(
+              onPressed: () => Get.back(),
+              child: SvgPicture.asset(
+                UImages.backward,
+                width: 34,
+                height: 34,
+                colorFilter: const ColorFilter.mode(
+                  UColors.secondaryBlack,
+                  BlendMode.srcIn,
+                ),
+              ),
+            ),
+          ),
 
           Positioned(
             bottom: 75,
             left: 15,
             right: 15,
-            child: UElevatedButton(
+            child: UElevatedButton.rectangle(
               onPressed: () => Get.to(() => const ShareQR()),
-              child: Text(UTexts.scanMe),
+              text: UTexts.scanMe,
+              backgroundColor: UColors.bprimary,
+              elevation: 2,
+              horizontalMargin: 9,
             ),
           ),
 
@@ -62,13 +84,13 @@ class ParentScreen extends StatelessWidget {
             bottom: 25,
             left: 15,
             right: 15,
-            child: UElevatedButton(
+            child: UElevatedButton.textButton(
               onPressed: () => Get.to(() => const ShareQR()),
-              backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+              // backgroundColor: const Color.fromARGB(0, 255, 255, 255),
               textColor: UColors.primary_800,
-              showBorder: false,
-              elevation: 0,
-              child: Text(UTexts.otpWay),
+              // showBorder: false,
+              // elevation: 0,
+              text: UTexts.otpWay,
             ),
           ),
         ],
