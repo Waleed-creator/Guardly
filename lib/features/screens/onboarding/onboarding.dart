@@ -92,6 +92,7 @@ class OnboardingScreen extends StatelessWidget {
                     child: UElevatedButton.textButton(
                       onPressed: controller.skipPage,
                       text: UTexts.skip,
+                      textSize: 19,
                       textColor: UColors.bprimary,
                     ),
                   ),

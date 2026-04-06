@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
-// import 'package:mindshield/features/screens/onboarding/widgets/onboarding_page.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:mindshield/Utilities/helpers/device_helpers.dart';
-import 'package:mindshield/features/screens/allowNotification/widgets/notify_backward_button.dart';
 import 'package:mindshield/features/screens/allowNotification/widgets/notify_next_button.dart';
-// import 'package:permission_handler/permission_handler.dart';
-// import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
+
+import '../../../common/widgets/button/u_elevated_button.dart';
 
 class AllowNotificationsScreen extends StatelessWidget {
   const AllowNotificationsScreen({super.key});
@@ -40,7 +38,25 @@ class AllowNotificationsScreen extends StatelessWidget {
               ],
             ),
 
-            NotifyBackButton(),
+            // NotifyBackButton(),
+
+            //  BackWard Button
+            Positioned(
+              top: USizes.spaceBtwItems * 4.6,
+              left: 20,
+              child: UElevatedButton.svgOnly(
+                onPressed: () => Get.back(),
+                child: SvgPicture.asset(
+                  UImages.backward,
+                  width: 34,
+                  height: 34,
+                  colorFilter: const ColorFilter.mode(
+                    UColors.secondaryBlack,
+                    BlendMode.srcIn,
+                  ),
+                ),
+              ),
+            ),
 
             NotifyNextButton(),
           ],
@@ -82,7 +98,7 @@ class NotifyPage extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 8),
-          
+
           Text(
             subTitle,
             textAlign: TextAlign.center,

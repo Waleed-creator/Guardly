@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
-import 'package:mindshield/features/screens/allowNotification/widgets/notify_backward_button.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
-import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
 import 'package:get/get.dart';
 import 'package:mindshield/features/screens/login/login.dart';
 import 'package:mindshield/Utilities/theme/theme.dart';
-
+import '../../../common/widgets/button/u_elevated_button.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -16,7 +15,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: false,
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -49,7 +48,25 @@ class SignupScreen extends StatelessWidget {
               ],
             ),
             //  BackWard Button
-            NotifyBackButton(),
+            // NotifyBackButton(),
+
+            //  BackWard Button
+            Positioned(
+              top: USizes.spaceBtwItems * 4.6,
+              left: 10,
+              child: UElevatedButton.svgOnly(
+                onPressed: () => Get.back(),
+                child: SvgPicture.asset(
+                  UImages.backward,
+                  width: 34,
+                  height: 34,
+                  colorFilter: const ColorFilter.mode(
+                    UColors.secondaryBlack,
+                    BlendMode.srcIn,
+                  ),
+                ),
+              ),
+            ),
             // ************************************
           ],
         ),
@@ -166,7 +183,13 @@ class SignupPage extends StatelessWidget {
           //         Row
           SizedBox(height: 10),
           // SignIn
-          UElevatedButton(onPressed: () => Get.to(() => LoginScreen()), child: Text(UTexts.continueButton)),
+          UElevatedButton.rectangle(
+            onPressed: () => Get.to(() => LoginScreen()),
+            text: UTexts.continueButton,
+            backgroundColor: UColors.bprimary,
+            horizontalMargin: 0,
+          ),
+
           SizedBox(height: USizes.spaceBtwItems / 2),
           // Create Account Button
 

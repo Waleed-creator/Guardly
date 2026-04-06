@@ -3,11 +3,12 @@ import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
-import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
+import 'package:mindshield/features/screens/login/login.dart';
+// import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
 import 'package:mindshield/features/screens/login/signup.dart';
 import 'package:mindshield/features/screens/login/widgets/terms_splash.dart';
-import 'package:mindshield/features/screens/login/login.dart';
 import 'package:get/get.dart';
+import '../../../common/widgets/button/u_elevated_button.dart';
 
 class LoginSplashScreen extends StatelessWidget {
   const LoginSplashScreen({super.key});
@@ -125,36 +126,48 @@ class AuthButtons extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           // Login Button: filled color, no border
-          Container(
-            margin: EdgeInsets.symmetric(
-              horizontal: USizes.spaceBtwItems,
-              vertical: 10,
-            ),
-            child: UElevatedButton(
-              onPressed:  () => Get.to(() => const LoginScreen()),
-              backgroundColor: UColors.bprimary,
-              textColor: Colors.white,
-              elevation: 2,
-              showBorder: false,
-              child: const Text("Log in"),
-            ),
+          // Container(
+          //   margin: EdgeInsets.symmetric(
+          //     horizontal: USizes.spaceBtwItems,
+          //     vertical: 10,
+          //   ),
+          //   child: UElevatedButton(
+          //     onPressed:  () => Get.to(() => const LoginScreen()),
+          //     backgroundColor: UColors.bprimary,
+          //     textColor: Colors.white,
+          //     elevation: 2,
+          //     showBorder: false,
+          //     child: const Text("Log in"),
+          //   ),
+          // ),
+          UElevatedButton.rectangle(
+            onPressed: () => Get.to(() => const LoginScreen()),
+            text: "Log in",
+            backgroundColor: UColors.bprimary,
+            // horizontalMargin: 0,
           ),
 
           // Signup Button: white background, no shadow, black text, no border
-          Container(
-            margin: EdgeInsets.symmetric(
-              horizontal: USizes.spaceBtwItems,
-              vertical: 0,
-            ),
-            child: UElevatedButton(
-              onPressed: () => Get.to(() => const SignupScreen()),
-              // onPressed: () => Get.to(() => const LoginScreen()),
-              backgroundColor: const Color.fromARGB(0, 255, 255, 255),
-              textColor: UColors.textPrimary800,
-              showBorder: false,
-              elevation: 0,
-              child: const Text("Sign up"),
-            ),
+          // Container(
+          //   margin: EdgeInsets.symmetric(
+          //     horizontal: USizes.spaceBtwItems,
+          //     vertical: 0,
+          //   ),
+          //   child: UElevatedButton(
+          //     onPressed: () => Get.to(() => const SignupScreen()),
+          //     // onPressed: () => Get.to(() => const LoginScreen()),
+          //     backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+          //     textColor: UColors.textPrimary800,
+          //     // showBorder: false,
+          //     elevation: 0,
+          //     child: const Text("Sign up"),
+          //   ),
+          // ),
+          UElevatedButton.textButton(
+            onPressed: () => Get.to(() => const SignupScreen()),
+            text: "Sign up",
+            textSize: 19,
+            textColor: UColors.textPrimary800,
           ),
         ],
       ),

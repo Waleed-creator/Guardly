@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:mindshield/features/authentication/controllers/onboarding/onboarding_controller.dart';
+import 'package:mindshield/common/widgets/button/u_elevated_button.dart';
 import 'package:mindshield/features/screens/login/login_splash.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
-import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
-
 
 class NotifyNextButton extends StatelessWidget {
   const NotifyNextButton({super.key});
@@ -39,54 +36,29 @@ class NotifyNextButton extends StatelessWidget {
     Get.offAll(() => const LoginSplashScreen());
   }
 
-@override
-Widget build(BuildContext context) {
-  return Align(
-    alignment: Alignment.bottomCenter,
-    child: Container(
-      // Yahan margin define kar sakte ho
-      margin: EdgeInsets.symmetric(horizontal: USizes.spaceBtwItems, vertical: 30),
-      padding: EdgeInsets.only(bottom: USizes.spaceBtwItems), // existing padding
-      child: UElevatedButton(
-        onPressed: _handleNotificationPermission,
-        child: const Text(
-          "Next",
-          style: TextStyle(
-            color: UColors.textWhite,
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-          ),
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        // Yahan margin define kar sakte ho
+        margin: EdgeInsets.symmetric(
+          horizontal: USizes.spaceBtwItems,
+          vertical: 30,
+        ),
+        padding: EdgeInsets.only(
+          bottom: USizes.spaceBtwItems,
+        ), // existing padding
+        child: UElevatedButton.rectangle(
+          onPressed: _handleNotificationPermission,
+          text: "Next",
+          backgroundColor: UColors.bprimary,
+          horizontalMargin: 0,
         ),
       ),
-    ),
-  );
+    );
+  }
 }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // class NotifyNextButton extends StatelessWidget {
 //   const NotifyNextButton({super.key});

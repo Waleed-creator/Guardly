@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
 import 'package:mindshield/features/screens/forgotpassword/passchanged.dart';
-import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
 import 'package:get/get.dart';
-import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbutton.dart';
+import 'package:mindshield/common/widgets/button/u_elevated_button.dart';
+
 
 class NewPassScreen extends StatelessWidget {
   const NewPassScreen({super.key});
@@ -28,16 +29,36 @@ class NewPassScreen extends StatelessWidget {
             ],
           ),
           //  BackWard Button
-          ForgotBackButton(),
+          // ForgotBackButton(),
+
+                    //  BackWard Button
+          Positioned(
+            top: USizes.spaceBtwItems * 4.6,
+            left: 10,
+            child: UElevatedButton.svgOnly(
+              onPressed: () => Get.back(),
+              child: SvgPicture.asset(
+                UImages.backward,
+                width: 34,
+                height: 34,
+                colorFilter: const ColorFilter.mode(
+                  UColors.secondaryBlack,
+                  BlendMode.srcIn,
+                ),
+              ),
+            ),
+          ),
 
           Positioned(
             bottom: 10,
             right: 0,
             left: 0,
-            child: ForgotButtonContainer(
-              text: UTexts.confirmButton,
+            child: UElevatedButton.rectangle(
+                            text: UTexts.confirmButton,
               onPressed: () => Get.to(() => PassChanged()),
-            ),
+                            backgroundColor: UColors.primary_800,
+              elevation: 1,
+            )
           ),
         ],
       ),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
+import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
-// import 'package:mindshield/features/screens/allowNotification/allow_notification.dart';
-import 'package:mindshield/features/screens/allowNotification/widgets/notify_backward_button.dart';
+import 'package:mindshield/common/widgets/button/u_elevated_button.dart';
 import 'package:mindshield/features/screens/login/widgets/loginpage.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -45,7 +47,24 @@ class LoginScreen extends StatelessWidget {
               ],
             ),
             //  BackWard Button
-            NotifyBackButton(),
+            // NotifyBackButton(),
+            //  BackWard Button
+            Positioned(
+              top: USizes.spaceBtwItems * 4.6,
+              left: 10,
+              child: UElevatedButton.svgOnly(
+                onPressed: () => Get.back(),
+                child: SvgPicture.asset(
+                  UImages.backward,
+                  width: 34,
+                  height: 34,
+                  colorFilter: const ColorFilter.mode(
+                    UColors.secondaryBlack,
+                    BlendMode.srcIn,
+                  ),
+                ),
+              ),
+            ),
             // ************************************
           ],
         ),

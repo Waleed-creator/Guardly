@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
+import 'package:mindshield/Utilities/constants/sizes.dart';
 
-enum UButtonType { circle, rectangle, text }
+enum UButtonType { circle, rectangle, text, svgOnly }
 
 class UElevatedButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   // Content
   final String? text;
+  final double? textSize;
   final IconData? icon;
+  final Widget? child;
 
   // Style
   final Color? backgroundColor;
@@ -21,6 +24,9 @@ class UElevatedButton extends StatelessWidget {
   final double borderRadius;
   final double elevation;
 
+  // Margin control 
+  final double horizontalMargin;
+
   // Button type
   final UButtonType buttonType;
 
@@ -31,7 +37,9 @@ class UElevatedButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     this.text,
+    this.textSize,
     this.icon,
+    this.child,
     this.backgroundColor,
     this.bPrimaryColor1,
     this.bPrimaryColor2,
@@ -41,18 +49,19 @@ class UElevatedButton extends StatelessWidget {
     this.height,
     this.borderRadius = 12,
     this.elevation = 0,
+    this.horizontalMargin = USizes.spaceBtwItems, 
     this.buttonType = UButtonType.rectangle,
     this.isVisible = true,
   });
-
-  // ─── Factory Constructors ───────────────────────────────────────────────────
 
   /// 🔵 Circle Button
   const UElevatedButton.circle({
     super.key,
     required this.onPressed,
     this.icon,
+    this.child,
     this.text,
+    this.textSize,
     this.bPrimaryColor1,
     this.bPrimaryColor2,
     this.iconColor,
@@ -61,16 +70,19 @@ class UElevatedButton extends StatelessWidget {
     this.height = 56,
     this.elevation = 0,
     this.isVisible = true,
-  })  : buttonType = UButtonType.circle,
-        backgroundColor = null,
-        borderRadius = 0;
+  }) : buttonType = UButtonType.circle,
+       backgroundColor = null,
+       borderRadius = 0,
+       horizontalMargin = 0; // 
 
   /// 🟩 Rectangle Button
   const UElevatedButton.rectangle({
     super.key,
     required this.onPressed,
     this.text,
+    this.textSize,
     this.icon,
+    this.child,
     this.backgroundColor,
     this.bPrimaryColor1,
     this.bPrimaryColor2,
@@ -80,26 +92,51 @@ class UElevatedButton extends StatelessWidget {
     this.height = 56,
     this.borderRadius = 12,
     this.elevation = 0,
+    this.horizontalMargin = USizes.spaceBtwItems, 
     this.isVisible = true,
-  })  : buttonType = UButtonType.rectangle;
+  }) : buttonType = UButtonType.rectangle;
 
   /// 🔤 Text Button
   const UElevatedButton.textButton({
     super.key,
     required this.onPressed,
     required this.text,
+    this.textSize,
     this.textColor,
     this.icon,
     this.iconColor,
     this.isVisible = true,
-  })  : buttonType = UButtonType.text,
-        backgroundColor = null,
-        bPrimaryColor1 = null,
-        bPrimaryColor2 = null,
-        width = null,
-        height = null,
-        borderRadius = 0,
-        elevation = 0;
+  }) : buttonType = UButtonType.text,
+       child = null,
+       backgroundColor = null,
+       bPrimaryColor1 = null,
+       bPrimaryColor2 = null,
+       width = null,
+       height = null,
+       borderRadius = 0,
+       elevation = 0,
+       horizontalMargin = 0; 
+
+  /// 🖼️ SVG Only Button
+  const UElevatedButton.svgOnly({
+    super.key,
+    required this.onPressed,
+    required this.child,
+    this.width,
+    this.height,
+    this.isVisible = true,
+  }) : buttonType = UButtonType.svgOnly,
+       text = null,
+       textSize = null,
+       icon = null,
+       iconColor = null,
+       textColor = null,
+       backgroundColor = null,
+       bPrimaryColor1 = null,
+       bPrimaryColor2 = null,
+       borderRadius = 0,
+       elevation = 0,
+       horizontalMargin = 0; 
 
   // ─── Content Builder ────────────────────────────────────────────────────────
 
@@ -118,7 +155,7 @@ class UElevatedButton extends StatelessWidget {
             style: TextStyle(
               color: textColor ?? Colors.white,
               fontWeight: FontWeight.bold,
-              fontSize: 22,
+              fontSize: textSize ?? 18,
             ),
           ),
       ],
@@ -160,7 +197,7 @@ class UElevatedButton extends StatelessWidget {
             shape: const CircleBorder(),
             padding: EdgeInsets.zero,
           ),
-          child: _buildContent(),
+          child: child ?? _buildContent(),
         ),
       ),
     );
@@ -172,11 +209,23 @@ class UElevatedButton extends StatelessWidget {
       width: width,
       height: height,
       child: Container(
+        margin: EdgeInsets.symmetric(
+          horizontal: horizontalMargin, 
+          vertical: 0,
+        ),
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(color: UColors.green_800, width: 2),
           ),
           borderRadius: BorderRadius.circular(borderRadius),
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0xFF00796B).withValues(alpha: 0.3),
+              offset: const Offset(0, 0.5),
+              blurRadius: 0,
+              spreadRadius: 0,
+            ),
+          ],
         ),
         child: ElevatedButton(
           onPressed: onPressed,
@@ -188,7 +237,7 @@ class UElevatedButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(borderRadius),
             ),
           ),
-          child: _buildContent(),
+          child: child ?? _buildContent(),
         ),
       ),
     );
@@ -205,20 +254,29 @@ class UElevatedButton extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // if (icon != null) ...[
-          //   Icon(icon, color: iconColor ?? UColors.green_800, size: 18),
-          //   const SizedBox(width: 6),
-          // ],
           if (text != null)
             Text(
               text!,
               style: TextStyle(
                 color: textColor ?? UColors.green_800,
                 fontWeight: FontWeight.w600,
-                fontSize: 18,
+                fontSize: textSize ?? 18,
               ),
             ),
         ],
+      ),
+    );
+  }
+
+  /// 🖼️ SVG Only
+  Widget _buildSvgOnly() {
+    return SizedBox(
+      width: width,
+      height: height,
+      child: InkWell(
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(100),
+        child: child,
       ),
     );
   }
@@ -236,6 +294,8 @@ class UElevatedButton extends StatelessWidget {
         return _buildRectangle();
       case UButtonType.text:
         return _buildTextButton();
+      case UButtonType.svgOnly:
+        return _buildSvgOnly();
     }
   }
 }
