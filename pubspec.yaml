@@ -127,6 +127,12 @@ flutter:
     - "assets/images/scanme.png"
     #  Profile Screens
     - "assets/images/Info_Card.png"
+    - "assets/images/home.svg"
+    - "assets/images/insights.svg"
+    - "assets/images/strict.svg"
+    - "assets/images/noti.svg"
+    - "assets/images/setting.svg"
+
 
   # assets:
   #   - images/a_dot_burr.jpeg

@@ -54,4 +54,11 @@ class UImages {
     static const String defaultProfile = "assets/images/profile.jpg";
     static const String whyProfileNeed = "assets/images/Info_Card.png";
 
+
+    static const String home = "assets/images/home.svg";
+    static const String insights = "assets/images/insights.svg";
+    static const String strict = "assets/images/strict.svg";
+    static const String noti = "assets/images/noti.svg";
+    static const String setting = "assets/images/setting.svg";
+
 }
