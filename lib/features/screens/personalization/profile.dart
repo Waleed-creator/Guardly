@@ -6,6 +6,7 @@ import 'package:mindshield/Utilities/constants/images.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
 import 'package:mindshield/common/widgets/button/u_elevated_button.dart';
+import 'package:mindshield/features/screens/Child_Dashboard/child_dashboard.dart';
 // import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbutton.dart';
 // import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
@@ -33,28 +34,40 @@ class _PBState extends State<ProfileBodySection> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 // Back Button **************************
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      left: USizes.spaceBtwItems * 1,
-                      top: 30,
-                    ), 
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: UElevatedButton.svgOnly(
-                        onPressed: () => Get.back(),
-                        child: SvgPicture.asset(
-                          "assets/notification/backward.svg",
-                          width: 34,
-                          height: 34,
-                          colorFilter: const ColorFilter.mode(
-                            UColors.secondaryBlack,
-                            BlendMode.srcIn,
+                Padding(
+                  padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: //  BackWard Button
+                          UElevatedButton.svgOnly(
+                            onPressed: () => Get.back(),
+                            child: SvgPicture.asset(
+                              UImages.backward,
+                              width: 34,
+                              height: 34,
+                              colorFilter: const ColorFilter.mode(
+                                UColors.secondaryBlack,
+                                BlendMode.srcIn,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
+
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: UElevatedButton.textButton(
+                            onPressed: () => Get.to(() => CDashboard()),
+                            text: "Skip>>",
+                            textColor: UColors.iconPrimary,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
 
@@ -185,7 +198,7 @@ class _PBState extends State<ProfileBodySection> {
 
                 UElevatedButton.rectangle(
                   text: UTexts.continueButton,
-                  onPressed: () {},
+                  onPressed: () => Get.to(() => CDashboard()),
                   backgroundColor: UColors.bprimary,
                   elevation: 2,
                   horizontalMargin: 18,

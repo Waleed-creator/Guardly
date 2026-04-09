@@ -127,7 +127,7 @@ class _ChooseAccountState extends State<ChooseAccount> {
         });
       },
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 600),
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 5),
         decoration: BoxDecoration(
           color: isSelected ? Colors.teal : Colors.white,

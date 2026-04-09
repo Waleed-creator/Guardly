@@ -8,6 +8,7 @@ import 'package:mindshield/Utilities/constants/texts.dart';
 // import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
 import 'package:mindshield/features/screens/AccountType/account_type_splash.dart';
 import 'package:mindshield/features/screens/AccountType/widgets/Parent/otpcard.dart';
+import 'package:mindshield/features/screens/Parent_Dashboard/parent_das.dart';
 
 import '../../../../../common/widgets/button/u_elevated_button.dart';
 // import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
@@ -83,7 +84,7 @@ class ShareQR extends StatelessWidget {
             left: 15,
             right: 15,
             child: UElevatedButton.rectangle(
-              onPressed: () => Get.to(() => const ChooseAccount()),
+              onPressed: () => Get.to(() => const PDashboard()),
               text: UTexts.continueButton,
               backgroundColor: UColors.bprimary,
               elevation: 2,

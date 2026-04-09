@@ -7,6 +7,7 @@ import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
 import 'package:mindshield/common/widgets/button/u_elevated_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mindshield/features/screens/AccountType/widgets/child/Scan&ReferCode/grantp.dart';
 
 class ChildScan extends StatelessWidget {
   const ChildScan({super.key});
@@ -43,7 +44,7 @@ class ChildScan extends StatelessWidget {
             right: 0,
             child: UElevatedButton.rectangle(
               text: UTexts.continueButton,
-              onPressed: () {},
+              onPressed: () => Get.to(() => GrantPermission()),
               backgroundColor: UColors.bprimary,
               elevation: 2,
             ),
