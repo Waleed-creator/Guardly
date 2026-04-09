@@ -5,8 +5,6 @@ import 'package:mindshield/Utilities/constants/colors.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
 import 'package:mindshield/Utilities/constants/sizes.dart';
 import 'package:mindshield/Utilities/constants/texts.dart';
-// import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
-import 'package:mindshield/features/screens/AccountType/account_type_splash.dart';
 import 'package:mindshield/features/screens/AccountType/widgets/Parent/otpcard.dart';
 import 'package:mindshield/features/screens/Parent_Dashboard/parent_das.dart';
 
