@@ -3,6 +3,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mindshield/Utilities/constants/colors.dart';
 import 'package:mindshield/Utilities/constants/images.dart';
+import 'package:mindshield/features/screens/Parent_Dashboard/p_home.dart';
+import 'package:mindshield/features/screens/Parent_Dashboard/p_insights.dart';
+import 'package:mindshield/features/screens/Parent_Dashboard/p_notification.dart';
+import 'package:mindshield/features/screens/Parent_Dashboard/p_settings.dart';
+import 'package:mindshield/features/screens/Parent_Dashboard/p_strict.dart';
 
 class ParentNavigationMenu extends StatelessWidget {
   const ParentNavigationMenu({super.key});
@@ -11,6 +16,8 @@ class ParentNavigationMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationController());
     return Scaffold(
+      backgroundColor: UColors.dashboard,
+      body: Obx(() => controller.screens[controller.selectedIndex.value]),
       bottomNavigationBar: Obx(
         () => _AnimatedNavBar(
           selectedIndex: controller.selectedIndex.value,
@@ -47,11 +54,15 @@ class _AnimatedNavBar extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: UColors.white,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.07),
-            blurRadius: 12,
-            offset: const Offset(0, -2),
+            color: Colors.black.withValues(alpha: 0.08),
+            blurRadius: 16,
+            offset: const Offset(0, -4),
           ),
         ],
       ),
@@ -104,16 +115,14 @@ class _NavItem extends StatelessWidget {
         child: Stack(
           clipBehavior: Clip.hardEdge,
           children: [
-            // Icon + Label — center mein
             Positioned.fill(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Icon — scale only, easeInOut curve (no overshoot)
                   AnimatedScale(
                     duration: const Duration(milliseconds: 200),
-                    curve: Curves.easeInOut, // easeOutBack hata diya
+                    curve: Curves.easeInOut,
                     scale: isSelected ? 1.12 : 1.0,
                     child: SvgPicture.asset(
                       image,
@@ -122,16 +131,14 @@ class _NavItem extends StatelessWidget {
                       colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
                     ),
                   ),
-
                   const SizedBox(height: 4),
-
-                  // Label
                   AnimatedDefaultTextStyle(
                     duration: const Duration(milliseconds: 200),
                     style: TextStyle(
                       fontSize: 10,
-                      fontWeight:
-                          isSelected ? FontWeight.w700 : FontWeight.w500,
+                      fontWeight: isSelected
+                          ? FontWeight.w700
+                          : FontWeight.w500,
                       color: color,
                     ),
                     child: Text(
@@ -143,8 +150,6 @@ class _NavItem extends StatelessWidget {
                 ],
               ),
             ),
-
-            // Underline — bilkul neeche fixed
             Positioned(
               bottom: 5,
               left: 0,
@@ -152,7 +157,7 @@ class _NavItem extends StatelessWidget {
               child: Center(
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 250),
-                  curve: Curves.easeInOut, // easeOutBack hata diya
+                  curve: Curves.easeInOut,
                   height: 3,
                   width: isSelected ? 36.0 : 0.0,
                   decoration: BoxDecoration(
@@ -175,4 +180,12 @@ class _NavItem extends StatelessWidget {
 
 class NavigationController extends GetxController {
   RxInt selectedIndex = 0.obs;
+
+  List<Widget> screens = [
+    ParentHome(),
+    ParentInsights(),
+    ParentStrict(),
+    ParentNotification(),
+    ParentSettings(),
+  ];
 }
