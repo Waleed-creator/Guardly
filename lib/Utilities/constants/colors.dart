@@ -52,6 +52,11 @@ class UColors {
 
   static const Color backButton_800 = Color(0xFF9ca3af);
   static const Color backButton_600 = Color(0xFFd1d5db);
+
+
+  static const Color navigation = Color(0xFF9eb2cd);
+
+
 }
 
 
