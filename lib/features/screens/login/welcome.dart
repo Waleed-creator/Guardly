@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:mindshield/Utilities/constants/sizes.dart';
-import 'package:mindshield/Utilities/constants/images.dart';
-import 'package:mindshield/Utilities/constants/texts.dart';
-import 'package:mindshield/Utilities/constants/colors.dart';
-import 'package:mindshield/features/screens/AccountType/account_type_splash.dart';
-// import 'package:mindshield/features/screens/allowNotification/widgets/notify_backward_button.dart';
-import 'package:mindshield/features/screens/login/widgets/terms_splash.dart';
+import 'package:guardly/Utilities/constants/sizes.dart';
+import 'package:guardly/Utilities/constants/images.dart';
+import 'package:guardly/Utilities/constants/texts.dart';
+import 'package:guardly/Utilities/constants/colors.dart';
+import 'package:guardly/features/screens/AccountType/account_type_splash.dart';
+// import 'package:guardly/features/screens/allowNotification/widgets/notify_backward_button.dart';
+import 'package:guardly/features/screens/login/widgets/terms_splash.dart';
 
 import '../../../common/widgets/button/u_elevated_button.dart';
-// import 'package:mindshield/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
+// import 'package:guardly/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
 
 class WellcomeScreen extends StatelessWidget {
   const WellcomeScreen({super.key});

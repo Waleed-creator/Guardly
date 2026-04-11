@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mindshield/Utilities/constants/colors.dart';
-import 'package:mindshield/Utilities/constants/sizes.dart';
+import 'package:guardly/Utilities/constants/colors.dart';
+import 'package:guardly/Utilities/constants/sizes.dart';
 
 enum UButtonType { circle, rectangle, text, svgOnly }
 

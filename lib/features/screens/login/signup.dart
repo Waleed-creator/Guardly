@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mindshield/Utilities/constants/images.dart';
-import 'package:mindshield/Utilities/constants/texts.dart';
+import 'package:guardly/Utilities/constants/images.dart';
+import 'package:guardly/Utilities/constants/texts.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mindshield/Utilities/constants/sizes.dart';
+import 'package:guardly/Utilities/constants/sizes.dart';
 import 'package:get/get.dart';
-import 'package:mindshield/features/screens/login/login.dart';
-import 'package:mindshield/Utilities/theme/theme.dart';
+import 'package:guardly/features/screens/login/login.dart';
+import 'package:guardly/Utilities/theme/theme.dart';
 import '../../../common/widgets/button/u_elevated_button.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -23,34 +23,17 @@ class SignupScreen extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomRight,
-            colors: [
-              UColors.primary_600, // Teal
-              UColors.secondary, // White
-            ],
-            stops: [0.1, 0.6], // End > Begin Point
+            colors: [UColors.primary_600, UColors.secondary],
+            stops: [0.1, 0.6],
           ),
         ),
         child: Stack(
           children: [
             PageView(
               children: [
-                SignupPage(
-                  // ! Header
-                  image: UImages.loginSplash,
-                  title: UTexts.signUp,
-
-                  // ! Form
-
-                  // ! Divider
-
-                  // ! Footer
-                ),
+                SignupPage(image: UImages.loginSplash, title: UTexts.signUp),
               ],
             ),
-            //  BackWard Button
-            // NotifyBackButton(),
-
-            //  BackWard Button
             Positioned(
               top: USizes.spaceBtwItems * 4.6,
               left: 10,
@@ -67,7 +50,6 @@ class SignupScreen extends StatelessWidget {
                 ),
               ),
             ),
-            // ************************************
           ],
         ),
       ),
@@ -75,37 +57,81 @@ class SignupScreen extends StatelessWidget {
   }
 }
 
-class SignupPage extends StatelessWidget {
+// ✅ StatelessWidget se StatefulWidget mein convert kiya
+class SignupPage extends StatefulWidget {
   const SignupPage({super.key, required this.image, required this.title});
   final String image;
   final String title;
+
+  @override
+  State<SignupPage> createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
+  // ✅ Popup dialog function
+  void _showConfirmDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        title: const Row(
+          children: [
+            Icon(Icons.info_outline, color: Colors.teal),
+            SizedBox(width: 8),
+            Text("Confirm"),
+          ],
+        ),
+        content: const Text("Kya aap Login page par jana chahte hain?"),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("Nahi", style: TextStyle(color: Colors.grey)),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: UColors.bprimary,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+              Get.to(() => LoginScreen());
+            },
+            child: const Text("Haan", style: TextStyle(color: Colors.white)),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // ******************************************  Pop Up Code
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
         right: USizes.defaultSpace,
         left: USizes.defaultSpace,
-        // top: UDeviceHelper.getAppBarHeight(),
         top: 85,
       ),
       child: Column(
         children: [
           /***************
-          * HEADER PART *
+           * HEADER PART *
            ***************/
-          // ! Image
           Center(
             child: SizedBox(
               height: 90,
-              width: 90, // image height adjust karo yahan
-              child: Image.asset(image, fit: BoxFit.contain),
+              width: 90,
+              child: Image.asset(widget.image, fit: BoxFit.contain),
             ),
           ),
 
           const SizedBox(height: 5),
-          // !  Title
+
           Text(
-            title,
+            widget.title,
             style: Theme.of(context).textTheme.headlineMedium,
             textAlign: TextAlign.center,
           ),
@@ -113,7 +139,7 @@ class SignupPage extends StatelessWidget {
           const SizedBox(height: 10),
 
           /***************
-          * FORM PART *
+           * FORM PART   *
            ***************/
           Row(
             mainAxisSize: MainAxisSize.min,
@@ -124,33 +150,32 @@ class SignupPage extends StatelessWidget {
                     labelText: UTexts.firstName,
                     hintText: "Enter your First Name",
                     filled: true,
-                    fillColor: UColors.light, // background
+                    fillColor: UColors.light,
                   ),
                 ),
               ),
-              SizedBox(width: USizes.spaceBtwInputFields), // 👈 gap here
+              SizedBox(width: USizes.spaceBtwInputFields),
               Expanded(
                 child: TextFormField(
                   decoration: InputDecoration(
                     labelText: UTexts.lastName,
                     hintText: "Enter your Last Name",
                     filled: true,
-                    fillColor: UColors.light, // background
+                    fillColor: UColors.light,
                   ),
                 ),
               ),
             ],
           ),
 
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
 
           TextFormField(
             decoration: InputDecoration(
-              // prefix: Icon(Iconsax.direct_right),
               labelText: UTexts.email,
               hintText: "Enter your email",
               filled: true,
-              fillColor: UColors.light, // background
+              fillColor: UColors.light,
             ),
           ),
 
@@ -158,12 +183,11 @@ class SignupPage extends StatelessWidget {
 
           TextFormField(
             decoration: InputDecoration(
-              // prefix: Icon(Iconsax.direct_right),
               labelText: UTexts.cAPass,
               hintText: "Enter your Password",
-              suffixIcon: Icon(Iconsax.eye),
+              suffixIcon: const Icon(Iconsax.eye),
               filled: true,
-              fillColor: UColors.light, // background
+              fillColor: UColors.light,
             ),
           ),
 
@@ -171,54 +195,51 @@ class SignupPage extends StatelessWidget {
 
           TextFormField(
             decoration: InputDecoration(
-              // prefix: Icon(Iconsax.direct_right),
               labelText: UTexts.confirmPassword,
               hintText: UTexts.confirmYPassword,
-              suffixIcon: Icon(Iconsax.eye),
+              suffixIcon: const Icon(Iconsax.eye),
               filled: true,
-              fillColor: UColors.light, // background
+              fillColor: UColors.light,
             ),
           ),
 
-          //         Row
-          SizedBox(height: 10),
-          // SignIn
+          const SizedBox(height: 10),
+
+          // ✅ BUTTON — ab dialog dikhayega
           UElevatedButton.rectangle(
-            onPressed: () => Get.to(() => LoginScreen()),
+            onPressed: _showConfirmDialog, // dialog open hoga
             text: UTexts.continueButton,
             backgroundColor: UColors.bprimary,
             horizontalMargin: 0,
           ),
 
           SizedBox(height: USizes.spaceBtwItems / 2),
-          // Create Account Button
 
           /***************
-          * DIVIDER PART *
+           * DIVIDER PART *
            ***************/
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
 
           Row(
             children: [
-              Expanded(
+              const Expanded(
                 child: Divider(indent: 10, endIndent: 5, thickness: 0.5),
               ),
               Text(
                 UTexts.orSignInWith,
                 style: Theme.of(context).textTheme.labelMedium,
               ),
-              Expanded(
+              const Expanded(
                 child: Divider(indent: 5, endIndent: 10, thickness: 0.5),
               ),
             ],
           ),
 
-          SizedBox(height: 0),
+          const SizedBox(height: 0),
 
           Center(
             child: Row(
-              mainAxisSize: MainAxisSize
-                  .min, // [icon][text]__________________________________ Space So Instaed Of max We use Min
+              mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(
                   height: 24,
@@ -227,8 +248,8 @@ class SignupPage extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {},
-                  child: Text(
-                    UTexts.cWAccount,
+                  child: const Text(
+                    UTexts.cWAccount, // ignore: undefined_identifier
                     style: TextStyle(
                       fontWeight: FontWeight.normal,
                       color: Color.fromARGB(255, 0, 0, 0),
@@ -242,21 +263,19 @@ class SignupPage extends StatelessWidget {
 
           Center(
             child: Row(
-              mainAxisSize: MainAxisSize
-                  .min, // [icon][text]__________________________________ Space So Instaed Of max We use Min
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   UTexts.alreadyHaveAccount,
-                  style: TextStyle().copyWith(
+                  style: const TextStyle().copyWith(
                     fontWeight: FontWeight.normal,
                     color: Color.fromARGB(255, 0, 0, 0),
                     fontSize: 16,
                   ),
                 ),
-
                 TextButton(
                   onPressed: () => Get.to(() => LoginScreen()),
-                  child: Text(
+                  child: const Text(
                     UTexts.signIn,
                     style: TextStyle(
                       fontWeight: FontWeight.normal,
@@ -273,7 +292,7 @@ class SignupPage extends StatelessWidget {
           ),
 
           /***************
-          * FOOTER PART *
+           * FOOTER PART *
            ***************/
         ],
       ),

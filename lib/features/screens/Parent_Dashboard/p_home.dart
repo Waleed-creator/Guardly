@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mindshield/Utilities/constants/colors.dart';
+import 'package:guardly/Utilities/constants/colors.dart';
 
 class ParentHome extends StatefulWidget {
   const ParentHome({super.key});

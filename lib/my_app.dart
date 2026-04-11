@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:mindshield/Utilities/theme/widgets_theme/text_theme.dart';
-import 'package:mindshield/features/screens/onboarding/onboarding.dart';
+import 'package:guardly/features/screens/onboarding/onboarding.dart';
 // import 'package:lottie/lottie.dart';
 // import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'Utilities/theme/theme.dart';

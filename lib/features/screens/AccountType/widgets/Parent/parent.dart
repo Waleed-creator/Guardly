@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:mindshield/Utilities/constants/colors.dart';
-import 'package:mindshield/Utilities/constants/images.dart';
-import 'package:mindshield/Utilities/constants/sizes.dart';
-import 'package:mindshield/Utilities/constants/texts.dart';
-import 'package:mindshield/features/screens/AccountType/widgets/Parent/shareqr.dart';
+import 'package:guardly/Utilities/constants/colors.dart';
+import 'package:guardly/Utilities/constants/images.dart';
+import 'package:guardly/Utilities/constants/sizes.dart';
+import 'package:guardly/Utilities/constants/texts.dart';
+import 'package:guardly/features/screens/AccountType/widgets/Parent/shareqr.dart';
 import '../../../../../common/widgets/button/u_elevated_button.dart';
 
 // /*************************

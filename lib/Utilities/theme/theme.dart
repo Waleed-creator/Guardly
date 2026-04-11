@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:mindshield/Utilities/theme/widgets_theme/text_theme.dart';
-import 'package:mindshield/Utilities/theme/widgets_theme/chip_theme.dart';
-import 'package:mindshield/Utilities/theme/widgets_theme/appbar_theme.dart';
-import 'package:mindshield/Utilities/theme/widgets_theme/bottem_sheet_theme.dart';
-import 'package:mindshield/Utilities/theme/widgets_theme/checkbox_theme.dart';
-import 'package:mindshield/Utilities/theme/widgets_theme/elevatedbutton_theme.dart';
-import 'package:mindshield/Utilities/theme/widgets_theme/outline_button_theme.dart';
-import 'package:mindshield/Utilities/theme/widgets_theme/text_field_theme.dart';
+import 'package:guardly/Utilities/theme/widgets_theme/text_theme.dart';
+import 'package:guardly/Utilities/theme/widgets_theme/chip_theme.dart';
+import 'package:guardly/Utilities/theme/widgets_theme/appbar_theme.dart';
+import 'package:guardly/Utilities/theme/widgets_theme/bottem_sheet_theme.dart';
+import 'package:guardly/Utilities/theme/widgets_theme/checkbox_theme.dart';
+import 'package:guardly/Utilities/theme/widgets_theme/elevatedbutton_theme.dart';
+import 'package:guardly/Utilities/theme/widgets_theme/outline_button_theme.dart';
+import 'package:guardly/Utilities/theme/widgets_theme/text_field_theme.dart';
 
 /// ---------------- COLORS ----------------
 class UColors {

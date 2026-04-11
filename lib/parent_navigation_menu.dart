@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:mindshield/Utilities/constants/colors.dart';
-import 'package:mindshield/Utilities/constants/images.dart';
-import 'package:mindshield/features/screens/Parent_Dashboard/p_home.dart';
-import 'package:mindshield/features/screens/Parent_Dashboard/p_insights.dart';
-import 'package:mindshield/features/screens/Parent_Dashboard/p_notification.dart';
-import 'package:mindshield/features/screens/Parent_Dashboard/p_settings.dart';
-import 'package:mindshield/features/screens/Parent_Dashboard/p_strict.dart';
+import 'package:guardly/Utilities/constants/colors.dart';
+import 'package:guardly/Utilities/constants/images.dart';
+import 'package:guardly/features/screens/Parent_Dashboard/p_home.dart';
+import 'package:guardly/features/screens/Parent_Dashboard/p_insights.dart';
+import 'package:guardly/features/screens/Parent_Dashboard/p_notification.dart';
+import 'package:guardly/features/screens/Parent_Dashboard/p_settings.dart';
+import 'package:guardly/features/screens/Parent_Dashboard/p_strict.dart';
 
 class ParentNavigationMenu extends StatelessWidget {
   const ParentNavigationMenu({super.key});

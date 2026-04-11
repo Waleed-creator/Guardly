@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-// import 'package:mindshield/Utilities/constants/sizes.dart';
-// import 'package:mindshield/Utilities/helpers/device_helpers.dart';
-import 'package:mindshield/Utilities/constants/sizes.dart';
-import 'package:mindshield/Utilities/constants/colors.dart';
+// import 'package:guardly/Utilities/constants/sizes.dart';
+// import 'package:guardly/Utilities/helpers/device_helpers.dart';
+import 'package:guardly/Utilities/constants/sizes.dart';
+import 'package:guardly/Utilities/constants/colors.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({

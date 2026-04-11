@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:mindshield/Utilities/constants/sizes.dart';
-import 'package:mindshield/common/widgets/button/u_elevated_button.dart';
-import 'package:mindshield/features/screens/login/login_splash.dart';
+import 'package:guardly/Utilities/constants/sizes.dart';
+import 'package:guardly/common/widgets/button/u_elevated_button.dart';
+import 'package:guardly/features/screens/login/login_splash.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mindshield/Utilities/constants/colors.dart';
+import 'package:guardly/Utilities/constants/colors.dart';
 
 class NotifyNextButton extends StatelessWidget {
   const NotifyNextButton({super.key});

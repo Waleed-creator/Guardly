@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mindshield/Utilities/constants/colors.dart';
-import 'package:mindshield/Utilities/constants/images.dart';
-import 'package:mindshield/Utilities/constants/texts.dart';
-import 'package:mindshield/common/widgets/button/u_elevated_button.dart';
-import 'package:mindshield/features/screens/personalization/profile.dart';
-// import 'package:mindshield/features/screens/forgotpassword/widgets/forgotbutton.dart';
+import 'package:guardly/Utilities/constants/colors.dart';
+import 'package:guardly/Utilities/constants/images.dart';
+import 'package:guardly/Utilities/constants/texts.dart';
+import 'package:guardly/common/widgets/button/u_elevated_button.dart';
+import 'package:guardly/features/screens/personalization/profile.dart';
+// import 'package:guardly/features/screens/forgotpassword/widgets/forgotbutton.dart';
 
 class PermissionHandler extends StatefulWidget {
   const PermissionHandler({super.key});

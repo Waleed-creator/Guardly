@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-// import 'package:mindshield/features/screens/allowNotification/allow_notification.dart';
-import 'package:mindshield/Utilities/constants/sizes.dart';
-import 'package:mindshield/Utilities/constants/colors.dart';
-import 'package:mindshield/Utilities/constants/texts.dart';
+// import 'package:guardly/features/screens/allowNotification/allow_notification.dart';
+import 'package:guardly/Utilities/constants/sizes.dart';
+import 'package:guardly/Utilities/constants/colors.dart';
+import 'package:guardly/Utilities/constants/texts.dart';
 
 class ForgotPage extends StatelessWidget {
   const ForgotPage({super.key, required this.title, required this.subtitle});

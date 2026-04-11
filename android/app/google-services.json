@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "950583156912",
-    "project_id": "guardly-3f876",
-    "storage_bucket": "guardly-3f876.firebasestorage.app"
+    "project_number": "795449019188",
+    "project_id": "guardly-b0878",
+    "storage_bucket": "guardly-b0878.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:950583156912:android:829f0c7a0825c4b516db75",
+        "mobilesdk_app_id": "1:795449019188:android:abdc5e9ba8425e8b33b361",
         "android_client_info": {
           "package_name": "com.example.guardly"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBk2I_T-eEoZWQv6Yayye-U-EjyQpf8vTk"
+          "current_key": "AIzaSyBaZRMu81CEYqelzt-JGWj_AwMfVR4GNLs"
         }
       ],
       "services": {

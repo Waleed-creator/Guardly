@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-// import 'package:mindshield/Utilities/helpers/device_helpers.dart';
+// import 'package:guardly/Utilities/helpers/device_helpers.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 // import 'package:get/get.dart';
-import 'package:mindshield/features/authentication/controllers/onboarding/onboarding_controller.dart';
-import 'package:mindshield/Utilities/constants/colors.dart';
+import 'package:guardly/features/authentication/controllers/onboarding/onboarding_controller.dart';
+import 'package:guardly/Utilities/constants/colors.dart';
 
 class OnBoardingDotNavigation extends StatelessWidget {
   const OnBoardingDotNavigation({super.key});

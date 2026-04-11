@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:mindshield/Utilities/constants/images.dart';
-// import 'package:mindshield/features/screens/allowNotification/allow_notification.dart';
-import 'package:mindshield/Utilities/constants/sizes.dart';
-import 'package:mindshield/Utilities/constants/texts.dart';
+import 'package:guardly/Utilities/constants/images.dart';
+// import 'package:guardly/features/screens/allowNotification/allow_notification.dart';
+import 'package:guardly/Utilities/constants/sizes.dart';
+import 'package:guardly/Utilities/constants/texts.dart';
 import 'package:get/get.dart';
-import 'package:mindshield/features/screens/forgotpassword/forgotpass.dart';
-import 'package:mindshield/features/screens/login/signup.dart';
-import 'package:mindshield/Utilities/theme/theme.dart';
-import 'package:mindshield/features/screens/login/welcome.dart';
+import 'package:guardly/features/screens/forgotpassword/forgotpass.dart';
+import 'package:guardly/features/screens/login/signup.dart';
+import 'package:guardly/Utilities/theme/theme.dart';
+import 'package:guardly/features/screens/login/welcome.dart';
 
 import '../../../../common/widgets/button/u_elevated_button.dart';
 

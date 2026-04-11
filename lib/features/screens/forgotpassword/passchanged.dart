@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:mindshield/Utilities/constants/images.dart';
-import 'package:mindshield/Utilities/constants/texts.dart';
-import 'package:mindshield/common/widgets/button/u_elevated_button.dart';
-import 'package:mindshield/Utilities/constants/sizes.dart';
-import 'package:mindshield/Utilities/constants/colors.dart';
-import 'package:mindshield/features/screens/login/login.dart';
+import 'package:guardly/Utilities/constants/images.dart';
+import 'package:guardly/Utilities/constants/texts.dart';
+import 'package:guardly/common/widgets/button/u_elevated_button.dart';
+import 'package:guardly/Utilities/constants/sizes.dart';
+import 'package:guardly/Utilities/constants/colors.dart';
+import 'package:guardly/features/screens/login/login.dart';
 
 class PassChanged extends StatelessWidget {
   const PassChanged({super.key});

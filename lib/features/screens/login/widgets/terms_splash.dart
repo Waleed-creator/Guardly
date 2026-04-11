@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:mindshield/Utilities/constants/colors.dart';
+import 'package:guardly/Utilities/constants/colors.dart';
 
 
 class TermsText extends StatelessWidget {

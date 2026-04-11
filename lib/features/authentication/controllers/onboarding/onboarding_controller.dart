@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mindshield/features/screens/allowNotification/allow_notification.dart';
+import 'package:guardly/features/screens/allowNotification/allow_notification.dart';
 
 class OnboardingController extends GetxController {
   static OnboardingController get instance => Get.find();

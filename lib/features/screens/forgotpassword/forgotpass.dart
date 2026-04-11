@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mindshield/Utilities/constants/images.dart';
-import 'package:mindshield/Utilities/constants/sizes.dart';
-import 'package:mindshield/Utilities/constants/texts.dart';
-import 'package:mindshield/Utilities/theme/theme.dart';
-import 'package:mindshield/common/widgets/button/u_elevated_button.dart'
+import 'package:guardly/Utilities/constants/images.dart';
+import 'package:guardly/Utilities/constants/sizes.dart';
+import 'package:guardly/Utilities/constants/texts.dart';
+import 'package:guardly/Utilities/theme/theme.dart';
+import 'package:guardly/common/widgets/button/u_elevated_button.dart'
     show UElevatedButton;
-import 'package:mindshield/features/screens/forgotpassword/widgets/forgotscreen.dart';
+import 'package:guardly/features/screens/forgotpassword/widgets/forgotscreen.dart';
 import 'package:get/get.dart';
-import 'package:mindshield/features/screens/forgotpassword/verifyemail.dart';
+import 'package:guardly/features/screens/forgotpassword/verifyemail.dart';
 
 class ForgotMainScreen extends StatelessWidget {
   const ForgotMainScreen({super.key});
