@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:guardly/Utilities/constants/images.dart';
-// import 'package:guardly/features/screens/allowNotification/allow_notification.dart';
 import 'package:guardly/Utilities/constants/sizes.dart';
 import 'package:guardly/Utilities/constants/texts.dart';
 import 'package:get/get.dart';
@@ -9,13 +8,55 @@ import 'package:guardly/features/screens/forgotpassword/forgotpass.dart';
 import 'package:guardly/features/screens/login/signup.dart';
 import 'package:guardly/Utilities/theme/theme.dart';
 import 'package:guardly/features/screens/login/welcome.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../../../common/widgets/button/u_elevated_button.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key, required this.image, required this.title});
+
   final String image;
   final String title;
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  // Controller
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  bool rememberMe = false;
+  bool hidePassword = true;
+
+  Future<void> loginUser() async {
+    String email = emailController.text.trim();
+    String password = passwordController.text.trim();
+
+    if (email.isEmpty || password.isEmpty) {
+      Get.snackbar("Error", "Email & Password required");
+      return;
+    }
+
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+
+      // Firebase se display name fetch karo
+      String firstName = userCredential.user?.displayName ?? "User";
+
+      Get.to(() => const WellcomeScreen(), arguments: firstName);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        Get.snackbar("Error", "No user found with this email");
+      } else if (e.code == 'wrong-password') {
+        Get.snackbar("Error", "Wrong password");
+      } else {
+        Get.snackbar("Error", e.message ?? "Login Failed");
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -35,14 +76,14 @@ class LoginPage extends StatelessWidget {
             child: SizedBox(
               height: 110,
               width: 90, // image height adjust karo yahan
-              child: Image.asset(image, fit: BoxFit.contain),
+              child: Image.asset(widget.image, fit: BoxFit.contain),
             ),
           ),
 
           const SizedBox(height: 5),
           // !  Title
           Text(
-            title,
+            widget.title,
             style: Theme.of(context).textTheme.headlineLarge,
             textAlign: TextAlign.center,
           ),
@@ -51,51 +92,67 @@ class LoginPage extends StatelessWidget {
           /***************
           * FORM PART *
            ***************/
+
+          // 📧 EMAIL
           TextFormField(
+            controller: emailController,
             decoration: InputDecoration(
               labelText: UTexts.email,
               hintText: "Enter your email",
               filled: true,
-              fillColor: UColors.light, // background
+              fillColor: UColors.light,
             ),
           ),
 
           SizedBox(height: USizes.spaceBtwInputFields),
 
+          // 🔒 PASSWORD
           TextFormField(
+            controller: passwordController,
+            obscureText: hidePassword,
             decoration: InputDecoration(
-              // prefix: Icon(Iconsax.direct_right),
               labelText: UTexts.password,
               hintText: "Enter your Password",
-              suffixIcon: Icon(Iconsax.eye),
               filled: true,
-              fillColor: UColors.light, // background
+              fillColor: UColors.light,
+              suffixIcon: IconButton(
+                icon: Icon(hidePassword ? Iconsax.eye_slash : Iconsax.eye),
+                onPressed: () {
+                  setState(() {
+                    hidePassword = !hidePassword;
+                  });
+                },
+              ),
             ),
           ),
 
-          //         Row
+          // ✔ REMEMBER + FORGOT
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
-                  Checkbox(value: true, onChanged: (value) {}),
+                  Checkbox(
+                    value: rememberMe,
+                    onChanged: (value) {
+                      setState(() {
+                        rememberMe = value ?? false;
+                      });
+                    },
+                  ),
                   Text(UTexts.rememberMe),
                 ],
               ),
 
-              //  Forget Password
               TextButton(
                 onPressed: () => Get.to(() => const ForgotMainScreen()),
                 child: Text(
                   UTexts.forgetPassword,
-                  style: TextStyle().copyWith(
+                  style: TextStyle(
                     fontWeight: FontWeight.normal,
-                    color: Color(0xFF009688),
+                    color: UColors.bprimary,
                     fontSize: 13,
                     decoration: TextDecoration.underline,
-                    decorationThickness: 2,
-                    decorationColor: Color(0xFF009688),
                   ),
                 ),
               ),
@@ -103,9 +160,11 @@ class LoginPage extends StatelessWidget {
           ),
 
           SizedBox(height: 10),
+
           // SignIn
+          // 🔥 LOGIN BUTTON
           UElevatedButton.rectangle(
-            onPressed: () => Get.to(() => const WellcomeScreen()),
+            onPressed: loginUser,
             text: UTexts.logIn,
             backgroundColor: UColors.bprimary,
             elevation: 2,

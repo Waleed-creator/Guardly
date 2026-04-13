@@ -208,4 +208,10 @@ class UTexts {
   static const String male = "Male";
   static const String female = "Female";
   static const String other = "Other";
+
+  // Child Dashboard header section
+  static  String pSelection = "Child Profile selected:";
+  static  String fPerson = "Emma Wilson";
+  static  String sPerson = "Jack Wilson";
+  static  String addAnotherProfile = "Add Another Child";
 }

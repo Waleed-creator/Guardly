@@ -6,17 +6,18 @@ import 'package:guardly/Utilities/constants/images.dart';
 import 'package:guardly/Utilities/constants/texts.dart';
 import 'package:guardly/Utilities/constants/colors.dart';
 import 'package:guardly/features/screens/AccountType/account_type_splash.dart';
-// import 'package:guardly/features/screens/allowNotification/widgets/notify_backward_button.dart';
 import 'package:guardly/features/screens/login/widgets/terms_splash.dart';
-
 import '../../../common/widgets/button/u_elevated_button.dart';
-// import 'package:guardly/common/widgets/button/rounded_rectangle_forward_elevated_button.dart';
 
 class WellcomeScreen extends StatelessWidget {
   const WellcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    //  Login se aaya hua first name
+    final String firstName = Get.arguments ?? "User";
+
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -38,7 +39,7 @@ class WellcomeScreen extends StatelessWidget {
               children: [
                 WellcomePage(
                   title: UTexts.wellcomeTitle,
-                  subTitle: UTexts.wellcomeFirstName,
+                  subTitle: firstName,
                   image: UImages.loginSplash,
                 ),
               ],

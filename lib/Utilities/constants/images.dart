@@ -61,4 +61,13 @@ class UImages {
     static const String noti = "assets/images/noti.svg";
     static const String setting = "assets/images/setting.svg";
 
+    // Parrent Home Child Header Selection
+    static const String emma = "assets/images/emma.jpg";
+    static const String jack = "assets/images/jack.jpg";
+    // SVG 
+    static const String addPerson = "assets/images/addperson.svg";
+    static const String chart = "assets/images/graph.jpg";
+
+
+
 }

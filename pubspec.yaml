@@ -52,6 +52,7 @@ dependencies:
   firebase_auth: ^6.3.0
   cloud_firestore: ^6.2.0
   firebase_storage: ^13.2.0
+  provider: ^6.0.5
   
 
 dev_dependencies:
@@ -132,6 +133,14 @@ flutter:
     - "assets/images/strict.svg"
     - "assets/images/noti.svg"
     - "assets/images/setting.svg"
+    # Parent Profile
+    - "assets/images/emma.jpg"
+    - "assets/images/jack.jpg"
+    # SVG
+    - "assets/images/addperson.svg"
+    - "assets/images/graph.jpg"
+
+
 
 
   # assets:

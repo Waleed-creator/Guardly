@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:guardly/Utilities/constants/images.dart';
@@ -9,9 +10,15 @@ import 'package:guardly/features/screens/login/login.dart';
 import 'package:guardly/Utilities/theme/theme.dart';
 import '../../../common/widgets/button/u_elevated_button.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
 
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+  // Body code
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +64,7 @@ class SignupScreen extends StatelessWidget {
   }
 }
 
-// ✅ StatelessWidget se StatefulWidget mein convert kiya
+// StatelessWidget se StatefulWidget mein convert kiya
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key, required this.image, required this.title});
   final String image;
@@ -68,44 +75,60 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
-  // ✅ Popup dialog function
-  void _showConfirmDialog() {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Row(
-          children: [
-            Icon(Icons.info_outline, color: Colors.teal),
-            SizedBox(width: 8),
-            Text("Confirm"),
-          ],
-        ),
-        content: const Text("Kya aap Login page par jana chahte hain?"),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text("Nahi", style: TextStyle(color: Colors.grey)),
-          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: UColors.bprimary,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-              Get.to(() => LoginScreen());
-            },
-            child: const Text("Haan", style: TextStyle(color: Colors.white)),
-          ),
-        ],
-      ),
-    );
-  }
+  // ✅ Controllers
+  final TextEditingController fnamecontroller = TextEditingController();
+  final TextEditingController lnamecontroller = TextEditingController();
+  final TextEditingController emailcontroller = TextEditingController();
+  final TextEditingController passwordcontroller = TextEditingController();
+  final TextEditingController cpasswordcontroller = TextEditingController();
 
-  // ******************************************  Pop Up Code
+  bool hidePassword = true;
+  bool hideConfirmPassword = true;
+
+  // ✅ REGISTRATION FUNCTION
+  Future<void> registration() async {
+    String fname = fnamecontroller.text.trim();
+    String lname = lnamecontroller.text.trim();
+    String email = emailcontroller.text.trim();
+    String password = passwordcontroller.text.trim();
+    String cpassword = cpasswordcontroller.text.trim();
+
+    if (fname.isEmpty ||
+        lname.isEmpty ||
+        email.isEmpty ||
+        password.isEmpty ||
+        cpassword.isEmpty) {
+      Get.snackbar("Error", "All fields are required");
+      return;
+    }
+
+    if (password != cpassword) {
+      Get.snackbar("Error", "Passwords do not match");
+      return;
+    }
+
+    try {
+      // ✅ SIRF EK BAAR call karo
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+
+      // ✅ First name Firebase mein save karo
+      await userCredential.user?.updateDisplayName(fname);
+
+      Get.snackbar("Success", "Registered Successfully");
+
+      // ✅ Login screen pe jao (arguments mat do yahan)
+      Get.to(() => LoginScreen());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        Get.snackbar("Error", "Weak Password");
+      } else if (e.code == 'email-already-in-use') {
+        Get.snackbar("Error", "Email already exists");
+      } else {
+        Get.snackbar("Error", e.message ?? "Signup Failed");
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -141,27 +164,26 @@ class _SignupPageState extends State<SignupPage> {
           /***************
            * FORM PART   *
            ***************/
+
+          // 👤 FIRST + LAST NAME
           Row(
-            mainAxisSize: MainAxisSize.min,
             children: [
               Expanded(
                 child: TextFormField(
-                  decoration: InputDecoration(
-                    labelText: UTexts.firstName,
-                    hintText: "Enter your First Name",
+                  controller: fnamecontroller,
+                  decoration: const InputDecoration(
+                    labelText: "First Name",
                     filled: true,
-                    fillColor: UColors.light,
                   ),
                 ),
               ),
-              SizedBox(width: USizes.spaceBtwInputFields),
+              const SizedBox(width: 10),
               Expanded(
                 child: TextFormField(
-                  decoration: InputDecoration(
-                    labelText: UTexts.lastName,
-                    hintText: "Enter your Last Name",
+                  controller: lnamecontroller,
+                  decoration: const InputDecoration(
+                    labelText: "Last Name",
                     filled: true,
-                    fillColor: UColors.light,
                   ),
                 ),
               ),
@@ -170,46 +192,62 @@ class _SignupPageState extends State<SignupPage> {
 
           const SizedBox(height: 10),
 
+          // 📧 EMAIL
           TextFormField(
+            controller: emailcontroller,
+            decoration: const InputDecoration(labelText: "Email", filled: true),
+          ),
+
+          SizedBox(height: USizes.spaceBtwInputFields),
+
+          // 🔒 PASSWORD
+          TextFormField(
+            controller: passwordcontroller,
+            obscureText: hidePassword,
             decoration: InputDecoration(
-              labelText: UTexts.email,
-              hintText: "Enter your email",
+              labelText: "Password",
               filled: true,
-              fillColor: UColors.light,
+              suffixIcon: IconButton(
+                icon: Icon(hidePassword ? Iconsax.eye_slash : Iconsax.eye),
+                onPressed: () {
+                  setState(() {
+                    hidePassword = !hidePassword;
+                  });
+                },
+              ),
             ),
           ),
 
           SizedBox(height: USizes.spaceBtwInputFields),
 
+          // 🔒 CONFIRM PASSWORD
           TextFormField(
+            controller: cpasswordcontroller,
+            obscureText: hideConfirmPassword,
             decoration: InputDecoration(
-              labelText: UTexts.cAPass,
-              hintText: "Enter your Password",
-              suffixIcon: const Icon(Iconsax.eye),
+              labelText: "Confirm Password",
               filled: true,
-              fillColor: UColors.light,
-            ),
-          ),
-
-          SizedBox(height: USizes.spaceBtwInputFields),
-
-          TextFormField(
-            decoration: InputDecoration(
-              labelText: UTexts.confirmPassword,
-              hintText: UTexts.confirmYPassword,
-              suffixIcon: const Icon(Iconsax.eye),
-              filled: true,
-              fillColor: UColors.light,
+              suffixIcon: IconButton(
+                icon: Icon(
+                  hideConfirmPassword ? Iconsax.eye_slash : Iconsax.eye,
+                ),
+                onPressed: () {
+                  setState(() {
+                    hideConfirmPassword = !hideConfirmPassword;
+                  });
+                },
+              ),
             ),
           ),
 
           const SizedBox(height: 10),
 
-          // ✅ BUTTON — ab dialog dikhayega
+          //  Continue BUTTON
           UElevatedButton.rectangle(
-            onPressed: _showConfirmDialog, // dialog open hoga
+            onPressed: registration, // dialog open hoga
             text: UTexts.continueButton,
             backgroundColor: UColors.bprimary,
+            elevation: 0,
             horizontalMargin: 0,
           ),
 
@@ -299,3 +337,46 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 }
+
+
+    // onPressed: _showConfirmDialog, // dialog open hoga
+
+
+//  // ✅ Popup dialog function
+//   void _showConfirmDialog() {
+//     showDialog(
+//       context: context,
+//       builder: (context) => AlertDialog(
+//         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+//         title: const Row(
+//           children: [
+//             Icon(Icons.info_outline, color: Colors.teal),
+//             SizedBox(width: 8),
+//             Text("Confirm"),
+//           ],
+//         ),
+//         content: const Text("Kya aap Login page par jana chahte hain?"),
+//         actions: [
+//           TextButton(
+//             onPressed: () => Navigator.pop(context),
+//             child: const Text("Nahi", style: TextStyle(color: Colors.grey)),
+//           ),
+//           ElevatedButton(
+//             style: ElevatedButton.styleFrom(
+//               backgroundColor: UColors.bprimary,
+//               shape: RoundedRectangleBorder(
+//                 borderRadius: BorderRadius.circular(8),
+//               ),
+//             ),
+//             onPressed: () {
+//               Navigator.pop(context);
+//               Get.to(() => LoginScreen());
+//             },
+//             child: const Text("Haan", style: TextStyle(color: Colors.white)),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+
+//   // ******************************************  Pop Up Code

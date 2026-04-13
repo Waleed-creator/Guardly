@@ -55,7 +55,7 @@ class UColors {
 
 
   static const Color navigation = Color(0xFF9eb2cd);
-  static const Color dashboard = Color(0xFFf9f9f9);
+  static const Color dashboard = Color(0xFFfafafa);
 
 
 }

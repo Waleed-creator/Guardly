@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:guardly/Utilities/constants/colors.dart';
 import 'package:guardly/Utilities/constants/images.dart';
-import 'package:guardly/features/screens/Parent_Dashboard/p_home.dart';
+import 'package:guardly/features/screens/Parent_Dashboard/p_home/view/dashboard_screen.dart';
 import 'package:guardly/features/screens/Parent_Dashboard/p_insights.dart';
 import 'package:guardly/features/screens/Parent_Dashboard/p_notification.dart';
 import 'package:guardly/features/screens/Parent_Dashboard/p_settings.dart';
@@ -182,7 +182,7 @@ class NavigationController extends GetxController {
   RxInt selectedIndex = 0.obs;
 
   List<Widget> screens = [
-    ParentHome(),
+    DashboardScreen(),
     ParentInsights(),
     ParentStrict(),
     ParentNotification(),
