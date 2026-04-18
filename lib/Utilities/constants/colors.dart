@@ -57,6 +57,12 @@ class UColors {
   static const Color navigation = Color(0xFF9eb2cd);
   static const Color dashboard = Color(0xFFfafafa);
 
+  // Dashboard
+
+  static const Color dButtonPrimary = Color(0xFF51b6ac);
+  static const Color dButtonSecondary = Color(0xFF757575);
+
+
 
 }
 
