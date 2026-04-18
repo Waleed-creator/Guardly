@@ -7,6 +7,7 @@ import 'package:guardly/features/screens/Parent_Dashboard/p_home/widgets/device_
 import 'package:guardly/features/screens/Parent_Dashboard/p_home/widgets/header_section.dart';
 import 'package:guardly/features/screens/Parent_Dashboard/p_home/widgets/quick_actions.dart';
 import 'package:guardly/features/screens/Parent_Dashboard/p_home/widgets/tab_section.dart';
+import 'package:guardly/features/screens/Parent_Dashboard/p_home/widgets/usage_section.dart';
 import 'package:provider/provider.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -57,6 +58,7 @@ class DashboardScreen extends StatelessWidget {
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
+                          UsageSection(),
                           ChartSection(),
                           QuickActions(),
                           AlertsList(),
