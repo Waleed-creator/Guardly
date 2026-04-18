@@ -26,31 +26,31 @@ class DashboardScreen extends StatelessWidget {
               if (controller.user == null) {
                 return const Center(child: CircularProgressIndicator());
               }
-
               return Stack(
                 children: [
                   SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        //
                         const SizedBox(height: 13),
-
+                        //
                         HeaderSection(
                           user: controller.user!,
                           children: controller.children,
                           onSelect: (child) => controller.changeUser(child),
                         ),
-
+                        //
                         const DeviceCard(),
-
+                        //
                         TabSection(
                           selectedIndex: controller.selectedTab,
                           onTap: controller.changeTab,
                         ),
-
+                        //
                         const UsageSection(),
+                        //
                         const ChartSection(),
-
                         //
                         SizedBox(height: 10),
                         const Padding(
@@ -67,14 +67,15 @@ class DashboardScreen extends StatelessWidget {
                         SizedBox(height: 5),
                         //
                         QuickActions(),
-
+                        //
+                        SizedBox(height: 5),
+                        //
                         const AlertsList(),
-
+                        //
                         const SizedBox(height: 20),
                       ],
                     ),
                   ),
-
                   // 👉 Top Gradient Shadow (ab sahi jagah pe)
                   Positioned(
                     top: 0,
