@@ -64,10 +64,12 @@ class DashboardScreen extends StatelessWidget {
                           ),
                         ),
                         //
-                        SizedBox(height: 10),
+                        SizedBox(height: 5),
                         //
                         QuickActions(),
+
                         const AlertsList(),
+
                         const SizedBox(height: 20),
                       ],
                     ),

@@ -140,6 +140,10 @@ flutter:
     # SVG
     - "assets/images/addperson.svg"
     - "assets/images/graph.jpg"
+    - "assets/images/location.svg"
+    - "assets/images/app_management.svg"
+    - "assets/images/block_late_night.svg"
+    - "assets/images/suspicious_screen_shots.svg"
 
 
 

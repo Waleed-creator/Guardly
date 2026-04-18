@@ -68,6 +68,11 @@ class UImages {
     static const String addPerson = "assets/images/addperson.svg";
     static const String chart = "assets/images/graph.jpg";
 
+    static const String location = "assets/images/location.svg";
+    static const String appManagement = "assets/images/app_management.svg";
+    static const String blockLateNight = "assets/images/block_late_night.svg";
+    static const String sSCapture = "assets/images/suspicious_screen_shots.svg";
+
 
 
 }
