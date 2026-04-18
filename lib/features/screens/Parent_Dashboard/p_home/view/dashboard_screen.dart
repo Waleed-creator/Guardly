@@ -20,38 +20,51 @@ class DashboardScreen extends StatelessWidget {
         backgroundColor: UColors.dashboard,
 
         body: SafeArea(
-          child: Column(
+          child: Stack(
             children: [
-              SizedBox(height: 13),
+              Column(
+                children: [
+                  SizedBox(height: 13),
 
-              // Header Section For Child Selection
-              Consumer<DashboardController>(
-                builder: (context, controller, child) {
-                  if (controller.user == null) {
-                    return CircularProgressIndicator();
-                  }
+                  Consumer<DashboardController>(
+                    builder: (context, controller, child) {
+                      if (controller.user == null) {
+                        return CircularProgressIndicator();
+                      }
 
-                  return HeaderSection(user: controller.user!,);
-                },
-              ),
-              // According To Child Their Device Name show
-              DeviceCard(),
-              // Record Show According To child Devise Usage
-              Consumer<DashboardController>(
-                builder: (context, controller, child) {
-                  return TabSection(
-                    selectedIndex: controller.selectedTab,
-                    onTap: controller.changeTab,
-                  );
-                },
-              ),
-
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [ChartSection(), QuickActions(), AlertsList()],
+                      return HeaderSection(
+                        user: controller.user!,
+                        children: controller.children,
+                        onSelect: (child) {
+                          controller.changeUser(child);
+                        },
+                      );
+                    },
                   ),
-                ),
+
+                  DeviceCard(),
+
+                  Consumer<DashboardController>(
+                    builder: (context, controller, child) {
+                      return TabSection(
+                        selectedIndex: controller.selectedTab,
+                        onTap: controller.changeTab,
+                      );
+                    },
+                  ),
+
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          ChartSection(),
+                          QuickActions(),
+                          AlertsList(),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
