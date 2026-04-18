@@ -18,6 +18,7 @@ class DashboardScreen extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => DashboardController()..init(),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: UColors.dashboard,
         body: SafeArea(
           child: Consumer<DashboardController>(
@@ -26,62 +27,69 @@ class DashboardScreen extends StatelessWidget {
                 return const Center(child: CircularProgressIndicator());
               }
 
-              return Column(
+              return Stack(
                 children: [
-                  const SizedBox(height: 13),
-
-                  // Fixed Part: Header and Device Card
-                  HeaderSection(
-                    user: controller.user!,
-                    children: controller.children,
-                    onSelect: (child) => controller.changeUser(child),
-                  ),
-
-                  const DeviceCard(),
-
-                  TabSection(
-                    selectedIndex: controller.selectedTab,
-                    onTap: controller.changeTab,
-                  ),
-
-                  Expanded(
-                    child: Stack(
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SingleChildScrollView(
-                          physics: const BouncingScrollPhysics(),
-                          padding: const EdgeInsets.only(top: 5, bottom: 20),
-                          child: Column(
-                            children: [
-                              const UsageSection(),
-                              const ChartSection(),
-                              QuickActions(),
-                              const AlertsList(),
-                            ],
-                          ),
+                        const SizedBox(height: 13),
+
+                        HeaderSection(
+                          user: controller.user!,
+                          children: controller.children,
+                          onSelect: (child) => controller.changeUser(child),
                         ),
 
-                        // 👉 Top Gradient Shadow (Isse glitchy look khatam ho jayega)
-                        Positioned(
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          child: Container(
-                            height: 25,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  UColors.dashboard, // Background color
-                                  UColors.dashboard.withValues(
-                                    alpha: 0.0,
-                                  ), // Fading to transparent
-                                ],
-                              ),
+                        const DeviceCard(),
+
+                        TabSection(
+                          selectedIndex: controller.selectedTab,
+                          onTap: controller.changeTab,
+                        ),
+
+                        const UsageSection(),
+                        const ChartSection(),
+
+                        //
+                        SizedBox(height: 10),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 10),
+                          child: Text(
+                            "Quick Actions",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22,
                             ),
                           ),
                         ),
+                        //
+                        SizedBox(height: 10),
+                        //
+                        QuickActions(),
+                        const AlertsList(),
+                        const SizedBox(height: 20),
                       ],
+                    ),
+                  ),
+
+                  // 👉 Top Gradient Shadow (ab sahi jagah pe)
+                  Positioned(
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      height: 20,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            UColors.dashboard,
+                            UColors.dashboard.withValues(alpha: 0.0),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ],
