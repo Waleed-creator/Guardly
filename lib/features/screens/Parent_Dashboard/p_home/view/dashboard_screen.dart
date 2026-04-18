@@ -19,79 +19,77 @@ class DashboardScreen extends StatelessWidget {
       create: (_) => DashboardController()..init(),
       child: Scaffold(
         backgroundColor: UColors.dashboard,
-
         body: SafeArea(
-          child: Stack(
-            children: [
-              Column(
+          child: Consumer<DashboardController>(
+            builder: (context, controller, child) {
+              if (controller.user == null) {
+                return const Center(child: CircularProgressIndicator());
+              }
+
+              return Column(
                 children: [
-                  SizedBox(height: 13),
+                  const SizedBox(height: 13),
 
-                  Consumer<DashboardController>(
-                    builder: (context, controller, child) {
-                      if (controller.user == null) {
-                        return CircularProgressIndicator();
-                      }
-
-                      return HeaderSection(
-                        user: controller.user!,
-                        children: controller.children,
-                        onSelect: (child) {
-                          controller.changeUser(child);
-                        },
-                      );
-                    },
+                  // Fixed Part: Header and Device Card
+                  HeaderSection(
+                    user: controller.user!,
+                    children: controller.children,
+                    onSelect: (child) => controller.changeUser(child),
                   ),
 
-                  DeviceCard(),
+                  const DeviceCard(),
 
-                  Consumer<DashboardController>(
-                    builder: (context, controller, child) {
-                      return TabSection(
-                        selectedIndex: controller.selectedTab,
-                        onTap: controller.changeTab,
-                      );
-                    },
+                  TabSection(
+                    selectedIndex: controller.selectedTab,
+                    onTap: controller.changeTab,
                   ),
 
                   Expanded(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          UsageSection(),
-                          ChartSection(),
-                          QuickActions(),
-                          AlertsList(),
-                        ],
-                      ),
+                    child: Stack(
+                      children: [
+                        SingleChildScrollView(
+                          physics: const BouncingScrollPhysics(),
+                          padding: const EdgeInsets.only(top: 5, bottom: 20),
+                          child: Column(
+                            children: [
+                              const UsageSection(),
+                              const ChartSection(),
+                              QuickActions(),
+                              const AlertsList(),
+                            ],
+                          ),
+                        ),
+
+                        // 👉 Top Gradient Shadow (Isse glitchy look khatam ho jayega)
+                        Positioned(
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          child: Container(
+                            height: 25,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  UColors.dashboard, // Background color
+                                  UColors.dashboard.withValues(
+                                    alpha: 0.0,
+                                  ), // Fading to transparent
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
-              ),
-            ],
+              );
+            },
           ),
         ),
       ),
     );
   }
 }
-
-// | Folder     | Kaam              |
-// | ---------- | ----------------- |
-// | view       | screen UI         |
-// | widgets    | reusable UI parts |
-// | controller | logic + state     |
-// | model      | data structure    |
-
-// model
-
-// 👉 “Data ka shape define karta hai” ka matlab hai:
-// tum decide karte ho ke data kis form mein hoga aur uske andar kya fields hongi
-
-// List<ActionModel> actions = [
-//   ActionModel(title: "Live Tracking", icon: Icons.location_on),
-// ];
-
-// 👉 ChangeNotifierProvider = WiFi router
-// 👉 Controller = Internet data
-// 👉 Consumer = Mobile jo data use kar raha hai
