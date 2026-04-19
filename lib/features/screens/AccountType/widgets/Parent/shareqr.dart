@@ -7,7 +7,6 @@ import 'package:guardly/Utilities/constants/sizes.dart';
 import 'package:guardly/Utilities/constants/texts.dart';
 import 'package:guardly/features/screens/AccountType/widgets/Parent/otpcard.dart';
 import 'package:guardly/features/screens/AccountType/widgets/Parent/controller/otp_controller.dart';
-import 'package:guardly/parent_navigation_menu.dart';
 import '../../../../../common/widgets/button/u_elevated_button.dart';
 // import 'package:guardly/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
 
@@ -20,8 +19,7 @@ class ShareQR extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Controller ko initialize karein
-    final OTPController controller = Get.put(OTPController());
+    final ConnectionController controller = Get.put(ConnectionController());
 
     return Scaffold(
       body: Stack(
@@ -51,7 +49,6 @@ class ShareQR extends StatelessWidget {
             ),
           ),
 
-          // Yahan OTPCard ko Obx mein wrap kiya taakay jab code aaye toh update ho
           Positioned(
             bottom: 165,
             left: 15,
@@ -78,18 +75,6 @@ class ShareQR extends StatelessWidget {
                   BlendMode.srcIn,
                 ),
               ),
-            ),
-          ),
-
-          Positioned(
-            bottom: 25,
-            left: 15,
-            right: 15,
-            child: UElevatedButton.rectangle(
-              onPressed: () => Get.to(() => const ParentNavigationMenu()),
-              text: UTexts.continueButton,
-              backgroundColor: UColors.bprimary,
-              elevation: 2,
             ),
           ),
         ],
