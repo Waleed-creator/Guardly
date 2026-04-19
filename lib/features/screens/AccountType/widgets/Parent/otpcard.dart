@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
 class OTPCard extends StatelessWidget {
   final String code;
 
@@ -58,7 +57,7 @@ class OTPCard extends StatelessWidget {
   }
 
   String formatCode(String code) {
-    // Example: 932255 -> 932-255
+    if (code.length < 6) return code;
     return "${code.substring(0, 3)}-${code.substring(3)}";
   }
 }

@@ -6,8 +6,8 @@ import 'package:guardly/Utilities/constants/images.dart';
 import 'package:guardly/Utilities/constants/sizes.dart';
 import 'package:guardly/Utilities/constants/texts.dart';
 import 'package:guardly/features/screens/AccountType/widgets/Parent/otpcard.dart';
+import 'package:guardly/features/screens/AccountType/widgets/Parent/controller/otp_controller.dart';
 import 'package:guardly/parent_navigation_menu.dart';
-
 import '../../../../../common/widgets/button/u_elevated_button.dart';
 // import 'package:guardly/features/screens/forgotpassword/widgets/forgotbackbutton.dart';
 
@@ -20,6 +20,9 @@ class ShareQR extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Controller ko initialize karein
+    final OTPController controller = Get.put(OTPController());
+
     return Scaffold(
       body: Stack(
         children: [
@@ -39,27 +42,28 @@ class ShareQR extends StatelessWidget {
                     child: Image.asset(UImages.scanMe),
                   ),
                 ),
-
-                SizedBox(height: 40),
-
+                const SizedBox(height: 40),
                 Text(
                   UTexts.getOTP,
-                  style: TextStyle(fontWeight: FontWeight.w500),
+                  style: const TextStyle(fontWeight: FontWeight.w500),
                 ),
               ],
             ),
           ),
 
+          // Yahan OTPCard ko Obx mein wrap kiya taakay jab code aaye toh update ho
           Positioned(
             bottom: 165,
             left: 15,
             right: 15,
-            child: OTPCard(code: "932255"),
+            child: Obx(
+              () => controller.isLoading.value
+                  ? const Center(child: CircularProgressIndicator())
+                  : OTPCard(code: controller.generatedOTP.value),
+            ),
           ),
 
-          // ForgotBackButton(),
-
-          //  BackWard Button
+          // Back Button
           Positioned(
             top: USizes.spaceBtwItems * 4.6,
             left: 30,
